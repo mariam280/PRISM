@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/register/ui/screens/widgets/welcome_wordmark.dart';
 
@@ -14,22 +15,22 @@ class WelcomeScreenBody extends StatelessWidget {
         children: [
           const WelcomeWordmark(),
           Spacer(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const WelcomeHeader(),
-              const CustomSize(h: 40),
-              AuthOptionButtons(
-                onTapGoogle: () {},
-                onTapEmail: () {},
-              ),
-              const CustomSize(h: 32),
-              SignupPrompt(
-                onTapCreateOne: () {},
-              ),
-            ],
-          ),
+          Text(
+                    'Welcome to PRISM',
+                    style: AppStyles.boldInter26(context)),
+                  const CustomSize(h: 8),
+                  Text(
+                    'Understand interfaces. Build with clarity.',
+                    style: AppStyles.regularInter14(context)),
+                        const CustomSize(h: 40),
+                        AuthOptionButtons(
+           onTapGoogle: () {},
+           onTapEmail: () {},
+                        ),
+                        const CustomSize(h: 32),
+                        SignupPrompt(
+           onTapCreateOne: () {},
+                        ),
         ],
       ),
     );
