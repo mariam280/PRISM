@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
+import 'package:prism/features/register/ui/screens/widgets/auth_option_buttons.dart';
+import 'package:prism/features/register/ui/screens/widgets/signup_prompt.dart';
 import 'package:prism/features/register/ui/screens/widgets/welcome_wordmark.dart';
 
 class WelcomeScreenBody extends StatelessWidget {
@@ -15,22 +17,16 @@ class WelcomeScreenBody extends StatelessWidget {
         children: [
           const WelcomeWordmark(),
           Spacer(),
+          Text('Welcome to PRISM', style: AppStyles.boldInter26(context)),
+          const CustomSize(h: 8),
           Text(
-                    'Welcome to PRISM',
-                    style: AppStyles.boldInter26(context)),
-                  const CustomSize(h: 8),
-                  Text(
-                    'Understand interfaces. Build with clarity.',
-                    style: AppStyles.regularInter14(context)),
-                        const CustomSize(h: 40),
-                        AuthOptionButtons(
-           onTapGoogle: () {},
-           onTapEmail: () {},
-                        ),
-                        const CustomSize(h: 32),
-                        SignupPrompt(
-           onTapCreateOne: () {},
-                        ),
+            'Understand interfaces. Build with clarity.',
+            style: AppStyles.regularInter14(context),
+          ),
+          const CustomSize(h: 40),
+          AuthOptionButtons(onTapGoogle: () {}, onTapEmail: () {}),
+          SignupPrompt(onTapCreateOne: () {}),
+          Spacer(),
         ],
       ),
     );

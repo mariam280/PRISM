@@ -12,13 +12,13 @@ class CustomButton extends StatelessWidget {
     this.borderColor,
     this.height,
     this.fontSize,
-    this.rightIcon,
+    this.leftImage,
     this.radius,
   });
   final VoidCallback? onTap;
   final String text;
   final Color? buttonColor, textColor;
-  final IconData?  rightIcon;
+  final String? leftImage;
   final BoxBorder? borderColor;
   final double? height, fontSize, radius;
   @override
@@ -38,11 +38,19 @@ class CustomButton extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             spacing: 8,
             children: [
-              if (rightIcon != null)
-                Icon(rightIcon, color: textColor, size: 16),
+              if (leftImage != null)
+                Image.asset(
+                  leftImage!,
+                  color: textColor,
+                  width: 16,
+                  height: 16,
+                ),
               Text(
                 text,
-                style: AppStyles.semiBoldInter14_2(context)),
+                style: AppStyles.semiBoldInter14_2(
+                  context,
+                ).copyWith(color: textColor ?? AppColors.kWhite2),
+              ),
             ],
           ),
         ),
