@@ -2,6 +2,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/features/onboarding/ui/screens/onboarding_screen.dart';
+import 'package:prism/features/register/ui/screens/welcome_screen.dart';
 import 'package:prism/features/splash/ui/screens/splash_screen.dart';
 
 abstract class AppRouter {
@@ -10,6 +11,10 @@ abstract class AppRouter {
       GoRoute(
         path: AppRouters.splash,
         builder: (context, state) => const SplashScreen(),
+      ),
+      GoRoute(
+        path: AppRouters.welcome,
+        builder: (context, state) => const WelcomeScreen(),
       ),
       // GoRoute(
       //   path: AppRouters.home,
