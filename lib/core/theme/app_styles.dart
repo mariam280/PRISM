@@ -142,7 +142,7 @@ abstract class AppStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Inter',
-      color: AppColors.kBlack,
+      color: AppColors.kWhite2,
       fontWeight: FontWeight.w600,
     );
   }
@@ -157,7 +157,7 @@ abstract class AppStyles {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Inter',
-      color: AppColors.kBlack,
+      color: AppColors.kWhite2,
       fontWeight: FontWeight.w700,
     );
   }

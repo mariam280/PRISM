@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AppColors {
@@ -12,4 +13,5 @@ class AppColors {
   static const darkGreen = Color(0xff34D399);
   static const lightGreen = Color(0xff3CC8A4);
   static const verydarkGrey = Color(0xffA1A1AA);
+  static const transparent = Color(0xff000000);
 }
