@@ -18,17 +18,17 @@ class Assets {
   /// assets/images/mist.png
   static const String imagesMist = "assets/images/mist.png";
 
-  /// Assets for imagesOnboardVisual1
-  /// assets/images/OnboardVisual1.png
-  static const String imagesOnboardVisual1 = "assets/images/OnboardVisual1.png";
+  /// Assets for imagesOnboard1
+  /// assets/images/onboard1.png
+  static const String imagesOnboard1 = "assets/images/onboard1.png";
 
-  /// Assets for imagesOnboardVisual2
-  /// assets/images/OnboardVisual2.png
-  static const String imagesOnboardVisual2 = "assets/images/OnboardVisual2.png";
+  /// Assets for imagesOnboard2
+  /// assets/images/onboard2.png
+  static const String imagesOnboard2 = "assets/images/onboard2.png";
 
-  /// Assets for imagesOnboardVisual3
-  /// assets/images/OnboardVisual3.png
-  static const String imagesOnboardVisual3 = "assets/images/OnboardVisual3.png";
+  /// Assets for imagesOnboard3
+  /// assets/images/onboard3.png
+  static const String imagesOnboard3 = "assets/images/onboard3.png";
 
   /// Assets for imagesPlusIcon
   /// assets/images/plusIcon.png
