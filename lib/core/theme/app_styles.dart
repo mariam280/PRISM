@@ -152,6 +152,16 @@ abstract class AppStyles {
   // Inter Font · Bold (w700)
   // ─────────────────────────────────────────
 
+    /// Inter · Bold · 18
+  static TextStyle boldInter18(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite2,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
    /// Inter · Bold · 24
   static TextStyle boldInter24(BuildContext context) {
     return TextStyle(

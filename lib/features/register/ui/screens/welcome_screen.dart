@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prism/features/register/ui/screens/widgets/welcome_screen_body.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -7,9 +8,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Welcome Screen'),
-        ),
+        child: WelcomeScreenBody()
       ),
     );
   }
