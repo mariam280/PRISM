@@ -25,7 +25,7 @@ class WelcomeScreenBody extends StatelessWidget {
           ),
           const CustomSize(h: 40),
           AuthOptionButtons(onTapGoogle: () {}, onTapEmail: () {}),
-          SignupPrompt(onTapCreateOne: () {}),
+          SignupPrompt(),
           Spacer(),
         ],
       ),
