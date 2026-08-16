@@ -46,46 +46,6 @@ abstract class AppStyles {
     );
   }
 
-  /// Inter · Regular · 24
-  static TextStyle regularInter24(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 24),
-      fontFamily: 'Inter',
-      color: AppColors.grey,
-      fontWeight: FontWeight.w400,
-    );
-  }
-  
-  /// Inter · Regular · 18
-  static TextStyle regularInter18(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 18),
-      fontFamily: 'Inter',
-      color: AppColors.grey,
-      fontWeight: FontWeight.w400,
-    );
-  }
-
-  /// Inter · Regular · 30
-  static TextStyle regularInter30(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 30),
-      fontFamily: 'Inter',
-      color: AppColors.grey,
-      fontWeight: FontWeight.w400,
-    );
-  }
-
-  /// Inter · Regular · 72
-  static TextStyle regularInter72(BuildContext context) {
-    return TextStyle(
-      fontSize: getResponsiveFontSize(context, fontSize: 72),
-      fontFamily: 'Inter',
-      color: AppColors.grey,
-      fontWeight: FontWeight.w400,
-    );
-  }
-
   // ─────────────────────────────────────────
   // Inter Font · Medium (w500)
   // ─────────────────────────────────────────
@@ -115,7 +75,7 @@ abstract class AppStyles {
   // ─────────────────────────────────────────
 
   /// Inter · SemiBold · 9
-  static TextStyle semiBoldInter91 (BuildContext context) {
+  static TextStyle semiBoldInter9_1 (BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 9),
       fontFamily: 'Inter',
@@ -125,7 +85,7 @@ abstract class AppStyles {
   }
 
    /// Inter · SemiBold · 9
-  static TextStyle semiBoldInter92 (BuildContext context) {
+  static TextStyle semiBoldInter9_2 (BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 9),
       fontFamily: 'Inter',
@@ -157,7 +117,7 @@ abstract class AppStyles {
   }
 
   /// Inter · SemiBold · 14
-  static TextStyle semiBoldInter141(BuildContext context) {
+  static TextStyle semiBoldInter14_1(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontFamily: 'Inter',
@@ -168,7 +128,7 @@ abstract class AppStyles {
 
   
   /// Inter · SemiBold · 14
-  static TextStyle semiBoldInter142(BuildContext context) {
+  static TextStyle semiBoldInter14_2(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontFamily: 'Inter',
@@ -178,7 +138,7 @@ abstract class AppStyles {
   }
 
   /// Inter · SemiBold · 24
-  static TextStyle semiBoldInter241(BuildContext context) {
+  static TextStyle semiBoldInter24_1(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontFamily: 'Inter',
