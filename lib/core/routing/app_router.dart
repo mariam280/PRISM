@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
+import 'package:prism/features/layout/ui/screens/layout_screen.dart';
 import 'package:prism/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:prism/features/auth/ui/screens/forgot_password_screen.dart';
 import 'package:prism/features/auth/ui/screens/welcome_screen.dart';
@@ -23,16 +24,13 @@ abstract class AppRouter {
         path: AppRouters.forgotPassword,
         builder: (context, state) => const ForgotPasswordScreen(),
       ),
-      // GoRoute(
-      //   path: AppRouters.home,
-      //   builder: (context, state) => const HomeScreen()),
+      GoRoute(
+        path: AppRouters.setting,
+        builder: (context, state) => const LayoutScreen()),
       GoRoute(
         path: AppRouters.onBoarding,
         builder: (context, state) => const OnboardingScreen(),
       ),
-      // GoRoute(
-      //   path: AppRouters.profile,
-      //   builder: (context, state) => const ProfileScreen()),
       GoRoute(
         path: AppRouters.register,
         builder: (context, state) => const SignupScreen()),

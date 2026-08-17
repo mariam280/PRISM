@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomeScreenBody extends StatelessWidget {
-  const HomeScreenBody({super.key});
+class ProfileScreenBody extends StatelessWidget {
+  const ProfileScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text(" Home Screen ")
+        Text("profile screen"),
       ],
     );
   }

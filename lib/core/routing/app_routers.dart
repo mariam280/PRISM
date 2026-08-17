@@ -1,13 +1,14 @@
 class AppRouters {
-  static const String splash = '/';
-  static const String welcome = '/welcome';
-  static const String home = '/home';
-  static const String onBoarding = '/onBoarding';
-  static const String projects = '/projects';
-  static const String profile = '/profile';
-  static const String register = '/register';
-  static const String signIn = '/signIn';
-  static const String blueprint = '/blueprint';
-  static const String setting = '/setting';
-  static const String forgotPassword = '/forgotPassword';
+  static const splash = '/';
+  static const welcome = '/welcome';
+  static const home = '/home';
+  static const onBoarding = '/onBoarding';
+  static const layout = '/layout';
+  static const projects = '/projects';
+  static const profile = '/profile';
+  static const register = '/signup';
+  static const signIn = '/signIn';
+  static const blueprint = '/blueprint';
+  static const setting = '/setting';
+  static const forgotPassword = '/forgotPassword';
 }
