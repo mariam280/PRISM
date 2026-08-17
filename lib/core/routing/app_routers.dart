@@ -9,4 +9,5 @@ class AppRouters {
   static const String signIn = '/signIn';
   static const String blueprint = '/blueprint';
   static const String setting = '/setting';
+  static const String forgotPassword = '/forgotPassword';
 }
