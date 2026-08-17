@@ -6,6 +6,16 @@ abstract class AppStyles {
   // Inter Font · Regular (w400)
   // ─────────────────────────────────────────
 
+   /// Inter · Regular · 10
+  static TextStyle regularInter10(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 10),
+      fontFamily: 'Inter',
+      color: AppColors.grey,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   /// Inter · Regular · 13
   static TextStyle regularInter13(BuildContext context) {
     return TextStyle(
@@ -51,7 +61,17 @@ abstract class AppStyles {
   // ─────────────────────────────────────────
 
   /// Inter · Medium · 13
-  static TextStyle mediumInter13(BuildContext context) {
+  static TextStyle mediumInter13_1(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 13),
+      fontFamily: 'Inter',
+      color: AppColors.purbleColor,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  /// Inter · Medium · 13
+  static TextStyle mediumInter13_2(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 13),
       fontFamily: 'Inter',
@@ -116,6 +136,16 @@ abstract class AppStyles {
     );
   }
 
+      /// Inter · SemiBold · 13
+  static TextStyle semiBoldInter13_2(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 13),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite2,
+      fontWeight: FontWeight.w600,
+    );
+  }
+  
   /// Inter · SemiBold · 14
   static TextStyle semiBoldInter14_1(BuildContext context) {
     return TextStyle(
@@ -151,6 +181,16 @@ abstract class AppStyles {
    // ─────────────────────────────────────────
   // Inter Font · Bold (w700)
   // ─────────────────────────────────────────
+
+   /// Inter · Bold · 16
+  static TextStyle boldInter16(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite2,
+      fontWeight: FontWeight.w700,
+    );
+  }
 
     /// Inter · Bold · 18
   static TextStyle boldInter18(BuildContext context) {
