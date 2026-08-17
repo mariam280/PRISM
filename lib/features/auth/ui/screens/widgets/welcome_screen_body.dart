@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
-import 'package:prism/features/register/ui/screens/widgets/auth_option_buttons.dart';
-import 'package:prism/features/register/ui/screens/widgets/signup_prompt.dart';
-import 'package:prism/features/register/ui/screens/widgets/welcome_wordmark.dart';
+import 'package:prism/features/auth/ui/screens/widgets/auth_option_buttons.dart';
+import 'package:prism/features/auth/ui/screens/widgets/signup_prompt.dart';
+import 'package:prism/features/auth/ui/screens/widgets/welcome_wordmark.dart';
 
 class WelcomeScreenBody extends StatelessWidget {
   const WelcomeScreenBody({super.key});
@@ -24,8 +26,10 @@ class WelcomeScreenBody extends StatelessWidget {
             style: AppStyles.regularInter14(context),
           ),
           const CustomSize(h: 40),
-          AuthOptionButtons(onTapGoogle: () {}, onTapEmail: () {}),
-          SignupPrompt(),
+          AuthOptionButtons(onTapGoogle: () {}, onTapEmail: () {
+            GoRouter.of(context).push(AppRouters.signIn);
+          }),
+          const SignupPrompt(),
           Spacer(),
         ],
       ),
