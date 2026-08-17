@@ -6,8 +6,6 @@ class LayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: LayoutScreenBody()),
-    );
+    return const Scaffold(body: SafeArea(child: LayoutScreenBody()));
   }
 }

@@ -25,7 +25,7 @@ abstract class AppRouter {
         builder: (context, state) => const ForgotPasswordScreen(),
       ),
       GoRoute(
-        path: AppRouters.setting,
+        path: AppRouters.layout,
         builder: (context, state) => const LayoutScreen()),
       GoRoute(
         path: AppRouters.onBoarding,

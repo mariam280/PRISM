@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/utils/widgets/custom_background.dart';
 import 'package:prism/features/projects/ui/screens/widgets/projects_screen_body.dart';
 
 class ProjectsScreen extends StatelessWidget {
@@ -6,8 +7,10 @@ class ProjectsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: ProjectsScreenBody(),
+    return CustomBackground(
+      child: const SafeArea(
+        child: ProjectsScreenBody(),
+      ),
     );
   }
 }

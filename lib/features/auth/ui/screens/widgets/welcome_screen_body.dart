@@ -26,9 +26,14 @@ class WelcomeScreenBody extends StatelessWidget {
             style: AppStyles.regularInter14(context),
           ),
           const CustomSize(h: 40),
-          AuthOptionButtons(onTapGoogle: () {}, onTapEmail: () {
-            GoRouter.of(context).push(AppRouters.signIn);
-          }),
+          AuthOptionButtons(
+            onTapGoogle: () {
+              GoRouter.of(context).go(AppRouters.layout);
+            },
+            onTapEmail: () {
+              GoRouter.of(context).push(AppRouters.signIn);
+            },
+          ),
           const SignupPrompt(),
           Spacer(),
         ],
