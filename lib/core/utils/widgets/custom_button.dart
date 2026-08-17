@@ -41,7 +41,7 @@ class CustomButton extends StatelessWidget {
               if (leftImage != null)
                 Image.asset(
                   leftImage!,
-                  color: textColor,
+                 // color: textColor,
                   width: 16,
                   height: 16,
                 ),
