@@ -28,7 +28,7 @@ class _SigninFormState extends State<SigninForm> {
 
   void onSubmit() {
     if (formKey.currentState?.validate() ?? false) {
-      GoRouter.of(context).go(AppRouters.home);
+      GoRouter.of(context).go(AppRouters.layout);
     }
   }
 
