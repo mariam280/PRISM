@@ -167,6 +167,16 @@ abstract class AppStyles {
     );
   }
 
+  /// Inter · SemiBold · 15
+  static TextStyle semiBoldInter15(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 15),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite2,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   /// Inter · SemiBold · 24
   static TextStyle semiBoldInter24_1(BuildContext context) {
     return TextStyle(

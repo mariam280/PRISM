@@ -49,5 +49,9 @@ class Assets {
   /// Assets for imagesProjectCoverr
   /// assets/images/projectCoverr.png
   static const String imagesProjectCoverr = "assets/images/projectCoverr.png";
+
+  /// Assets for imagesUploadImageIcon
+  /// assets/images/uploadImageIcon.png
+  static const String imagesUploadImageIcon = "assets/images/uploadImageIcon.png";
 }
 
