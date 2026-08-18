@@ -7,8 +7,9 @@ import 'package:prism/core/utils/widgets/size.dart';
 
 class ImageUpLoadedBox extends StatelessWidget {
   final void Function()? onTap;
-
   const ImageUpLoadedBox({super.key, this.onTap});
+  // final Function(File) onImageSelected;
+  // final File? imageFile;
 
   // Future<void> pickImage(BuildContext context) async {
   //   final picker = ImagePicker();
