@@ -16,6 +16,17 @@ abstract class AppStyles {
     );
   }
 
+  
+   /// Inter · Regular · 12
+  static TextStyle regularInter12(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontFamily: 'Inter',
+      color: AppColors.grey,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
   /// Inter · Regular · 13
   static TextStyle regularInter13(BuildContext context) {
     return TextStyle(
@@ -66,6 +77,16 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, fontSize: 13),
       fontFamily: 'Inter',
       color: AppColors.purbleColor,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  /// Inter · Medium · 12
+  static TextStyle mediumInter12(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite,
       fontWeight: FontWeight.w500,
     );
   }
