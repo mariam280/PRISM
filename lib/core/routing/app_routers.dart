@@ -8,4 +8,5 @@ class AppRouters {
   static const blueprint = '/blueprint';
   static const setting = '/setting';
   static const forgotPassword = '/forgotPassword';
+  static const uploadImage = '/upload_image';
 }
