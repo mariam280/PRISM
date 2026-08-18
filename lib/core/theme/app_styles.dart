@@ -192,6 +192,16 @@ abstract class AppStyles {
     );
   }
 
+   /// Inter · Bold · 17
+  static TextStyle boldInter17(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 17),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite2,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
     /// Inter · Bold · 18
   static TextStyle boldInter18(BuildContext context) {
     return TextStyle(

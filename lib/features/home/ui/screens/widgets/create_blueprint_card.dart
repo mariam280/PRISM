@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:prism/core/constants/app_images.dart';
+import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/features/home/ui/screens/widgets/plus_icon.dart';
 
 class CreateBlueprintCard extends StatelessWidget {
-  const CreateBlueprintCard({super.key, this.onTap});
+  const CreateBlueprintCard({super.key});
 
-  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: (){
+        GoRouter.of(context).push(AppRouters.uploadImage);
+      },
       child: Stack(
         clipBehavior: Clip.none,
         children: [

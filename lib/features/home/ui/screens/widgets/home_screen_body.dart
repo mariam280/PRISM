@@ -25,7 +25,7 @@ class HomeScreenBody extends StatelessWidget {
               style: AppStyles.regularInter14(context),
             ),
             const CustomSize(h: 24),
-            CreateBlueprintCard(onTap: () {}),
+            CreateBlueprintCard(),
             const CustomSize(h: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
