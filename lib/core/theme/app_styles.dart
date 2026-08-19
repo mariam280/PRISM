@@ -16,7 +16,6 @@ abstract class AppStyles {
     );
   }
 
-  
    /// Inter · Regular · 12
   static TextStyle regularInter12(BuildContext context) {
     return TextStyle(
@@ -146,6 +145,16 @@ abstract class AppStyles {
     );
   }
 
+      /// Inter · Regular · 11
+  static TextStyle semiBoldInter11(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 11),
+      fontFamily: 'Inter',
+      color: AppColors.grey,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   /// Inter · SemiBold · 12
   static TextStyle semiBoldInter12_1(BuildContext context) {
     return TextStyle(
@@ -231,6 +240,16 @@ abstract class AppStyles {
    // ─────────────────────────────────────────
   // Inter Font · Bold (w700)
   // ─────────────────────────────────────────
+
+  /// Inter · Bold · 15
+  static TextStyle boldInter15(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 15),
+      fontFamily: 'Inter',
+      color: AppColors.kWhite,
+      fontWeight: FontWeight.w700,
+    );
+  }
 
    /// Inter · Bold · 16
   static TextStyle boldInter16(BuildContext context) {
