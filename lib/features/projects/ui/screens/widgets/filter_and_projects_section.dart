@@ -16,6 +16,7 @@ class _RecentProjectsSectionState extends State<FilterAndProjectsSection> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FilterChipsRow(

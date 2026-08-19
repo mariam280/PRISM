@@ -15,21 +15,18 @@ class FilterChipsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 20),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (final filter in filters) ...[
-            FilterChipItem(
-              label: filter,
-              isSelected: filter == selected,
-              onTap: () => onChanged(filter),
-            ),
-            if (filter != filters.last) const SizedBox(width: 8),
-          ],
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (final filter in filters) ...[
+          FilterChipItem(
+            label: filter,
+            isSelected: filter == selected,
+            onTap: () => onChanged(filter),
+          ),
+          if (filter != filters.last) const SizedBox(width: 8),
         ],
-      ),
+      ],
     );
   }
 }
