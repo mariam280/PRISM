@@ -18,9 +18,11 @@ class UploadImageScreenBody extends StatelessWidget {
         children: [
           const UploadImageHeader(),
           const CustomSize(h: 28),
-          ImageUpLoadedBox(onTap: () {
-            GoRouter.of(context).push(AppRouters.reviewScreenshot);
-          }),
+          ImageUpLoadedBox(
+            onTap: () {
+              GoRouter.of(context).push(AppRouters.reviewScreenshot);
+            },
+          ),
           Spacer(),
           UploadImageFooterButtons(onTapGallery: () {}, onTapCamera: () {}),
         ],
