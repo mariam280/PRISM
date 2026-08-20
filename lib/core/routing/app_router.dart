@@ -1,6 +1,7 @@
 // GoRouter configuration
 import 'package:go_router/go_router.dart';
 import 'package:prism/core/routing/app_routers.dart';
+import 'package:prism/features/alnalysis/ui/screens/after_analysis_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
 import 'package:prism/features/home/ui/screens/review_screenshot_screen.dart';
@@ -29,26 +30,36 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouters.layout,
-        builder: (context, state) => const LayoutScreen()),
+        builder: (context, state) => const LayoutScreen(),
+      ),
       GoRoute(
         path: AppRouters.onBoarding,
         builder: (context, state) => const OnboardingScreen(),
       ),
       GoRoute(
         path: AppRouters.register,
-        builder: (context, state) => const SignupScreen()),
+        builder: (context, state) => const SignupScreen(),
+      ),
       GoRoute(
         path: AppRouters.signIn,
-        builder: (context, state) => const SigninScreen()),
+        builder: (context, state) => const SigninScreen(),
+      ),
       GoRoute(
         path: AppRouters.uploadImage,
-        builder: (context, state) => const UploadImageScreen()),
-        GoRoute(
+        builder: (context, state) => const UploadImageScreen(),
+      ),
+      GoRoute(
         path: AppRouters.reviewScreenshot,
-        builder: (context, state) => const ReviewScreenshotScreen()),
-         GoRoute(
+        builder: (context, state) => const ReviewScreenshotScreen(),
+      ),
+      GoRoute(
         path: AppRouters.appearance,
-        builder: (context, state) => const AppearanceScreen()),
+        builder: (context, state) => const AppearanceScreen(),
+      ),
+      GoRoute(
+        path: AppRouters.analysis,
+        builder: (context, state) => const AfterAnalysisScreen(),
+      ),
       // GoRoute(
       //   path: AppRouters.blueprint,
       //   builder: (context, state) => const BlueprintScreen()),
