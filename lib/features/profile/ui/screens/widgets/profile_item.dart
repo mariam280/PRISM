@@ -15,6 +15,7 @@ class ProfileItem extends StatelessWidget {
       children: [
         Text(title, style: AppStyles.semiBoldInter11(context)),
         Container(
+          width: double.infinity,
           decoration: BoxDecoration(
             color: AppColors.cardsColor,
             borderRadius: BorderRadius.circular(16),
