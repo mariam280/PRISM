@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/utils/widgets/appbar_header.dart';
 import 'package:prism/features/profile/ui/screens/widgets/appearance_buttons_chip_row.dart';
-import 'package:prism/features/profile/ui/screens/widgets/appearance_header.dart';
 
 class AppearanceScreenHeader extends StatefulWidget {
   const AppearanceScreenHeader({super.key});
@@ -18,7 +18,7 @@ class _RecentProjectsSectionState extends State<AppearanceScreenHeader> {
       spacing: 20,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppearanceHeader(),
+        AppbarHeader(title: 'Setting'),
         AppearanceButtonsChipRow(
           selected: _selectedFilter,
           onChanged: (filter) => setState(() => _selectedFilter = filter),

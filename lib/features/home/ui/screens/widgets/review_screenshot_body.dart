@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/utils/widgets/appbar_header.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/home/ui/screens/widgets/analysis_info_note.dart';
 import 'package:prism/features/home/ui/screens/widgets/review_screenshot_box.dart';
 import 'package:prism/features/home/ui/screens/widgets/review_screenshot_footer_buttons.dart';
-import 'package:prism/features/home/ui/screens/widgets/review_screenshot_header.dart';
 
 class ReviewScreenshotBody extends StatelessWidget {
   const ReviewScreenshotBody({super.key});
@@ -16,7 +16,7 @@ class ReviewScreenshotBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const ReviewScreenshotHeader(),
+            const AppbarHeader(title: 'Review Screenshot'),
             const CustomSize(h: 28),
             ReviewScreenshotBox(),
             const CustomSize(h: 13),

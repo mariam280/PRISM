@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
-class AppearanceHeader extends StatelessWidget {
-  const AppearanceHeader({super.key});
-
+class AppbarHeader extends StatelessWidget {
+  const AppbarHeader({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +28,7 @@ class AppearanceHeader extends StatelessWidget {
             child: Icon(Icons.arrow_back, size: 16, color: AppColors.kWhite2),
           ),
         ),
-        Text('Settings', style: AppStyles.boldInter17(context)),
+        Text(title, style: AppStyles.boldInter17(context)),
       ],
     );
   }
