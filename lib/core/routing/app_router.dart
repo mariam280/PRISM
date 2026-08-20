@@ -2,6 +2,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/features/alnalysis/ui/screens/after_analysis_screen.dart';
+import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
 import 'package:prism/features/home/ui/screens/review_screenshot_screen.dart';
@@ -57,8 +58,12 @@ abstract class AppRouter {
         builder: (context, state) => const AppearanceScreen(),
       ),
       GoRoute(
-        path: AppRouters.analysis,
+        path: AppRouters.afteranalysis,
         builder: (context, state) => const AfterAnalysisScreen(),
+      ),
+      GoRoute(
+        path: AppRouters.analysis,
+        builder: (context, state) => const AnalysisScreen(),
       ),
       // GoRoute(
       //   path: AppRouters.blueprint,
