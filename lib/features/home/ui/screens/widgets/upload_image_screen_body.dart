@@ -24,7 +24,12 @@ class UploadImageScreenBody extends StatelessWidget {
             },
           ),
           Spacer(),
-          UploadImageFooterButtons(onTapGallery: () {}, onTapCamera: () {}),
+          UploadImageFooterButtons(
+            onTapGallery: () {
+              GoRouter.of(context).go(AppRouters.analysis);
+            },
+            onTapCamera: () {},
+          ),
         ],
       ),
     );
