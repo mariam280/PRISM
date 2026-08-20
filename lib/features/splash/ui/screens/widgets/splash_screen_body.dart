@@ -21,7 +21,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
 
   Future<void> navigateAfterDelay() async {
     await Future.delayed(const Duration(seconds: 3));
-      GoRouter.of(context).go(AppRouters.onBoarding);
+    GoRouter.of(context).go(AppRouters.onBoarding);
   }
 
   @override
@@ -33,9 +33,9 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
         Positioned(
           left: 0,
           right: 0,
-          bottom: 20,
+          bottom: 0,
           child: Transform.scale(
-            scaleX: -1,
+            scale: 0.1,
             child: Lottie.asset("assets/animation/Loading.json"),
           ),
         ),
