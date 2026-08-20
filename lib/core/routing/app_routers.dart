@@ -10,4 +10,5 @@ class AppRouters {
   static const forgotPassword = '/forgotPassword';
   static const uploadImage = '/upload_image';
   static const reviewScreenshot = '/reviewScreenshot';
+  static const appearance = '/appearance';
 }

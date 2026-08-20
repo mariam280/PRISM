@@ -9,6 +9,7 @@ import 'package:prism/features/layout/ui/screens/layout_screen.dart';
 import 'package:prism/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:prism/features/auth/ui/screens/forgot_password_screen.dart';
 import 'package:prism/features/auth/ui/screens/welcome_screen.dart';
+import 'package:prism/features/profile/ui/screens/appearance_screen.dart';
 import 'package:prism/features/splash/ui/screens/splash_screen.dart';
 
 abstract class AppRouter {
@@ -45,6 +46,9 @@ abstract class AppRouter {
         GoRoute(
         path: AppRouters.reviewScreenshot,
         builder: (context, state) => const ReviewScreenshotScreen()),
+         GoRoute(
+        path: AppRouters.appearance,
+        builder: (context, state) => const AppearanceScreen()),
       // GoRoute(
       //   path: AppRouters.blueprint,
       //   builder: (context, state) => const BlueprintScreen()),
