@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/utils/widgets/appbar_header.dart';
-import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_screen_content.dart';
-import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_screen_footer.dart';
+import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_screen_content.dart';
+import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_screen_footer.dart';
 
-class AfterAnalysisScreenBody extends StatelessWidget {
-  const AfterAnalysisScreenBody({super.key});
+class AnalysisResultScreenBody extends StatelessWidget {
+  const AnalysisResultScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class AfterAnalysisScreenBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppbarHeader(title: 'Fitness Dashboard'),
-            AnalysisScreenContent(),
-            AnalysisScreenFooter(),
+            AnalysisResultScreenContent(),
+            AnalysisResultScreenFooter(),
           ],
         ),
       ),

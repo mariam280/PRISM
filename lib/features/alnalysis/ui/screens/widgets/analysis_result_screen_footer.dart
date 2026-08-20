@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/utils/widgets/custom_button.dart';
 
-class AnalysisScreenFooter extends StatelessWidget {
-  const AnalysisScreenFooter({super.key});
+class AnalysisResultScreenFooter extends StatelessWidget {
+  const AnalysisResultScreenFooter({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/constants/app_images.dart';
-import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_item_card.dart';
+import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_item_card.dart';
 
-class AnalysisScreenContent extends StatelessWidget {
-  const AnalysisScreenContent({super.key});
+class AnalysisResultScreenContent extends StatelessWidget {
+  const AnalysisResultScreenContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,19 @@ class AnalysisScreenContent extends StatelessWidget {
           spacing: 10,
           children: [
             Expanded(
-              child: AnalysisItemCard(title: 'Created', subTitle: 'Aug 12'),
+              child: AnalysisResultItemCard(
+                title: 'Created',
+                subTitle: 'Aug 12',
+              ),
             ),
             Expanded(
-              child: AnalysisItemCard(title: 'Type', subTitle: 'Dashboard'),
+              child: AnalysisResultItemCard(
+                title: 'Type',
+                subTitle: 'Dashboard',
+              ),
             ),
             Expanded(
-              child: AnalysisItemCard(title: 'Status', subTitle: 'Ready'),
+              child: AnalysisResultItemCard(title: 'Status', subTitle: 'Ready'),
             ),
           ],
         ),

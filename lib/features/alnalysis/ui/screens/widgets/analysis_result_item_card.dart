@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
-class AnalysisItemCard extends StatelessWidget {
-  const AnalysisItemCard({
+class AnalysisResultItemCard extends StatelessWidget {
+  const AnalysisResultItemCard({
     super.key,
     required this.title,
     required this.subTitle,
