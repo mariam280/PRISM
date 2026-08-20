@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
-class FilterChipItem extends StatelessWidget {
-  const FilterChipItem({
-    super.key,
+class AppearanceButtonsChip extends StatelessWidget {
+  const AppearanceButtonsChip({super.key, 
     required this.label,
     required this.isSelected,
     required this.onTap,
@@ -21,7 +20,7 @@ class FilterChipItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         curve: Curves.easeOut,
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         decoration: BoxDecoration(
           color: isSelected ? AppColors.purbleColor : AppColors.cardsColor,
           borderRadius: BorderRadius.circular(8),
@@ -31,10 +30,8 @@ class FilterChipItem extends StatelessWidget {
         ),
         child: Text(
           label,
-          textAlign: TextAlign.center,
-          style: isSelected
-              ? AppStyles.semiBoldInter12_2(context)
-              : AppStyles.semiBoldInter12_1(context),
+           textAlign: TextAlign.center,
+          style: isSelected? AppStyles.semiBoldInter12_2(context): AppStyles.semiBoldInter12_1(context)
         ),
       ),
     );
