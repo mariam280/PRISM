@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_styles.dart';
-import 'package:prism/features/profile/ui/screens/widgets/profile_item.dart';
+import 'package:prism/core/utils/widgets/custom_card.dart';
 
 class AppearanceScreenFooter extends StatelessWidget {
   const AppearanceScreenFooter({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ProfileItem(
+    return CustomCard(
       title: 'ACCOUNT',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

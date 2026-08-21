@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prism/features/profile/ui/screens/widgets/profile_item.dart';
+import 'package:prism/core/utils/widgets/custom_card.dart';
 import 'package:prism/features/profile/ui/screens/widgets/profile_item_content.dart';
 
 class StorageAbout extends StatelessWidget {
@@ -10,14 +10,14 @@ class StorageAbout extends StatelessWidget {
     return Column(
       spacing: 20,
       children: [
-        ProfileItem(
+        CustomCard(
           title: 'STORAGE',
           child: ProfileItemContent(
             lable: 'Manage projects',
             icon: Icons.folder_outlined,
           ),
         ),
-        ProfileItem(
+        CustomCard(
           title: 'ABOUT',
           child: Column(
             children: [
