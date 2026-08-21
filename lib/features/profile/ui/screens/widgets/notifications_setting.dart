@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prism/features/profile/ui/screens/widgets/notification_item.dart';
-import 'package:prism/core/utils/widgets/custom_card.dart';
+import 'package:prism/features/profile/ui/screens/widgets/profile_item.dart';
 
 class NotificationSetting extends StatefulWidget {
   const NotificationSetting({super.key});
@@ -17,7 +17,7 @@ class _NotificationSettingsScreenState extends State<NotificationSetting> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
+    return ProfileItem(
       title: 'NOTIFICATIONS',
       child: Column(
         children: [

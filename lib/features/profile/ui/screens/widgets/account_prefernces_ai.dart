@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:prism/core/routing/app_routers.dart';
-import 'package:prism/core/utils/widgets/custom_card.dart';
+import 'package:prism/features/profile/ui/screens/widgets/profile_item.dart';
 import 'package:prism/features/profile/ui/screens/widgets/profile_item_content.dart';
 
 class AccountPreferncesAi extends StatelessWidget {
@@ -12,14 +12,14 @@ class AccountPreferncesAi extends StatelessWidget {
     return Column(
       spacing: 20,
       children: [
-        CustomCard(
+        ProfileItem(
           title: 'ACCOUNT',
           child: ProfileItemContent(
             lable: 'Personal information',
             icon: Icons.badge_outlined,
           ),
         ),
-        CustomCard(
+        ProfileItem(
           title: 'PREFERENCES',
           child: InkWell(
             onTap: () {
@@ -39,7 +39,7 @@ class AccountPreferncesAi extends StatelessWidget {
             ),
           ),
         ),
-        CustomCard(
+        ProfileItem(
           title: 'AI',
           child: ProfileItemContent(
             lable: 'Analysis preferences',

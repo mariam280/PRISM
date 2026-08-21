@@ -13,7 +13,6 @@ class CustomErrorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-     title: '',
       child: Padding(
         padding: EdgeInsets.all(AppPadding.p20(context)),
         child: Column(
