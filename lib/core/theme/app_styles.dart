@@ -165,7 +165,7 @@ abstract class AppStyles {
     );
   }
 
-  /// Inter · SemiBold · 10
+  /// Inter · SemiBold · 12
   static TextStyle semiBoldInter12_2(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 12),
