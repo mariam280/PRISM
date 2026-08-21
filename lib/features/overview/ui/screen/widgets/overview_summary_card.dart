@@ -11,22 +11,21 @@ class BlueprintSummaryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'UI BLUEPRINT',
-            style: AppStyles.semiBoldInter12_3(context)
-          ),
-          const SizedBox(height: 5),
-          Text(
-            description,
-            style: AppStyles.regularInter13(context).copyWith(
-              color: AppColors.grey,
-              height: 1.6,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('UI BLUEPRINT', style: AppStyles.semiBoldInter12_3(context)),
+            const SizedBox(height: 5),
+            Text(
+              description,
+              style: AppStyles.regularInter13(
+                context,
+              ).copyWith(color: AppColors.grey, height: 1.6),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
