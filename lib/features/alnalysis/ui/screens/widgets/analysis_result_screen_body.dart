@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/utils/widgets/appbar_header.dart';
 import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_screen_content.dart';
 import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_screen_footer.dart';
@@ -16,7 +18,12 @@ class AnalysisResultScreenBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppbarHeader(title: 'Fitness Dashboard'),
+            AppbarHeader(
+              onTap: () {
+                GoRouter.of(context).go(AppRouters.layout);
+              },
+              title: 'Fitness Dashboard',
+            ),
             AnalysisResultScreenContent(),
             AnalysisResultScreenFooter(),
           ],

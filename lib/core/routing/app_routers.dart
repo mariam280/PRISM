@@ -11,6 +11,6 @@ class AppRouters {
   static const uploadImage = '/upload_image';
   static const reviewScreenshot = '/reviewScreenshot';
   static const appearance = '/appearance';
-  static const afteranalysis = '/afteranalysis';
+  static const analysisResult = '/afteranalysis';
   static const analysis = '/analysis';
 }

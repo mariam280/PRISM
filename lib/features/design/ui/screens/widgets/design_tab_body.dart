@@ -5,6 +5,9 @@ class DesignTabBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column();
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: const Column(),
+    );
   }
 }

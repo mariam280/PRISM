@@ -38,7 +38,7 @@ class AnalysisScreenBody extends StatelessWidget {
     AnalysisStepModel(title: 'Building UI blueprint', activeCaption: 'Assembling structure'),
   ],
   onCompleted: () {
-    GoRouter.of(context).go(AppRouters.afteranalysis);
+    GoRouter.of(context).go(AppRouters.blueprint);
   },
 )
         ],

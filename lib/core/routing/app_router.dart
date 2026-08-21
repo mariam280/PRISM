@@ -5,6 +5,7 @@ import 'package:prism/features/alnalysis/ui/screens/analysis_result_screen.dart'
 import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
+import 'package:prism/features/blueprint/ui/screens/blueprint_screen.dart';
 import 'package:prism/features/home/ui/screens/review_screenshot_screen.dart';
 import 'package:prism/features/home/ui/screens/upload_image_screen.dart';
 import 'package:prism/features/layout/ui/screens/layout_screen.dart';
@@ -58,16 +59,16 @@ abstract class AppRouter {
         builder: (context, state) => const AppearanceScreen(),
       ),
       GoRoute(
-        path: AppRouters.afteranalysis,
+        path: AppRouters.analysisResult,
         builder: (context, state) => const AnalysisResultScreen(),
       ),
       GoRoute(
         path: AppRouters.analysis,
         builder: (context, state) => const AnalysisScreen(),
       ),
-      // GoRoute(
-      //   path: AppRouters.blueprint,
-      //   builder: (context, state) => const BlueprintScreen()),
+      GoRoute(
+        path: AppRouters.blueprint,
+        builder: (context, state) => const BlueprintScreen()),
       // GoRoute(
       //   path: AppRouters.setting,
       //   builder: (context, state) => const SettingScreen()),

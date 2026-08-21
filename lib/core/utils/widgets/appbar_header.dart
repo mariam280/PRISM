@@ -4,15 +4,16 @@ import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
 class AppbarHeader extends StatelessWidget {
-  const AppbarHeader({super.key, required this.title});
+  const AppbarHeader({super.key, required this.title, this.onTap});
   final String title;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: 12,
       children: [
         GestureDetector(
-          onTap: () {
+          onTap: onTap ?? () {
             GoRouter.of(context).pop();
           },
           child: Container(
