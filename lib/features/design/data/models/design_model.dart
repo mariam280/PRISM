@@ -2,8 +2,8 @@ import 'package:prism/features/design/data/models/color_swatch_model.dart';
 import 'package:prism/features/design/data/models/shape_info_model.dart';
 import 'package:prism/features/design/data/models/typography_spec_model.dart';
 
-class DesignModelModel {
-  const DesignModelModel({
+class DesignModel {
+  const DesignModel({
     required this.colors,
     required this.typography,
     required this.spacing,
