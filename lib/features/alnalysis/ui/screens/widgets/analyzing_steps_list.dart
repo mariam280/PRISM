@@ -67,10 +67,7 @@ class _AnalyzingStepsListState extends State<AnalyzingStepsList> {
         for (var i = 0; i < widget.steps.length; i++)
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 6),
-            child: _StepRow(
-              step: widget.steps[i],
-              status: _statusFor(i),
-            ),
+            child: _StepRow(step: widget.steps[i], status: _statusFor(i)),
           ),
         const SizedBox(height: 12),
         AnimatedSwitcher(
@@ -118,10 +115,9 @@ class _StepRow extends StatelessWidget {
         Expanded(
           child: AnimatedDefaultTextStyle(
             duration: const Duration(milliseconds: 250),
-            style: AppStyles.regularInter14(context).copyWith(
-              color: textColor,
-              fontWeight: fontWeight,
-            ),
+            style: AppStyles.regularInter14(
+              context,
+            ).copyWith(color: textColor, fontWeight: fontWeight),
             child: Text(step.title),
           ),
         ),
