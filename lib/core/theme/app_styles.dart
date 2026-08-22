@@ -70,6 +70,16 @@ abstract class AppStyles {
   // Inter Font · Medium (w500)
   // ─────────────────────────────────────────
 
+  /// Inter · Medium · 10
+  static TextStyle mediumInter10(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 10),
+      fontFamily: 'Inter',
+      color: AppColors.purbleColor,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
   /// Inter · Medium · 13
   static TextStyle mediumInter13_1(BuildContext context) {
     return TextStyle(
