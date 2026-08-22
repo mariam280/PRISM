@@ -3,9 +3,10 @@ import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
 class DetectionBadge extends StatelessWidget {
-  const DetectionBadge({super.key, required this.isAiDetected});
+  const DetectionBadge({super.key, required this.isAiDetected,  this.compact = false});
 
   final bool isAiDetected;
+  final bool compact;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class DetectionBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
-        isAiDetected ? 'AI detected' : 'Estimated',
+        isAiDetected ? (compact ? 'AI' : 'AI detected') : 'Estimated',
         style: AppStyles.mediumInter10(context).copyWith(
           color: isAiDetected ? AppColors.purbleColor : AppColors.grey,
         ),
