@@ -6,7 +6,7 @@ class BlueprintTabBar extends StatelessWidget {
     super.key,
     required this.selected,
     required this.onChanged,
-    this.tabs = const ['Overview', 'Design', 'Components', 'Layout'],
+    this.tabs = const ['Overview', 'Design', 'Components'],
   });
 
   final String selected;

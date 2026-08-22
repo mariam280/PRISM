@@ -6,7 +6,7 @@ class ComponentPreview extends StatelessWidget {
   const ComponentPreview({
     super.key,
     required this.componentModel,
-    this.height = 90,
+    this.height = 70,
   });
 
   final ComponentModel componentModel;
@@ -20,7 +20,7 @@ class ComponentPreview extends StatelessWidget {
         Assets.imagesNavBarPlaceHolder,
         height: height,
         width: double.infinity,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }

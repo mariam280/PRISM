@@ -22,44 +22,46 @@ class ComponentDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            AppbarHeader(title:componentModel.name ),
-            DetectionBadge(isAiDetected: componentModel.isAiDetected),
-          ],
-        ),
-        const CustomSize(h: 20),
-        CustomCard(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: ComponentPreview(componentModel: componentModel, height: 120),
-          ),
-        ),
-        const CustomSize(h: 16),
-        CustomCard(
-          //clip: true,
-          child: Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              for (var i = 0; i < componentModel.specs.length; i++) ...[
-                SpecRow(specModel: componentModel.specs[i]),
-                if (i != componentModel.specs.length - 1)
-                  const Divider(
-                    height: 1,
-                    thickness: 1,
-                    color: AppColors.borderColor,
-                  ),
-              ],
+              AppbarHeader(title: componentModel.name, onTap: onBack),
+              DetectionBadge(isAiDetected: componentModel.isAiDetected),
             ],
           ),
-        ),
-        const CustomSize(h: 14),
-        OutlinedButtonWidget(componentModel: componentModel),
-      ],
-    ),
+          const CustomSize(h: 20),
+          CustomCard(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: ComponentPreview(
+                componentModel: componentModel,
+                height: 120,
+              ),
+            ),
+          ),
+          const CustomSize(h: 16),
+          CustomCard(
+            //clip: true,
+            child: Column(
+              children: [
+                for (var i = 0; i < componentModel.specs.length; i++) ...[
+                  SpecRow(specModel: componentModel.specs[i]),
+                  if (i != componentModel.specs.length - 1)
+                    const Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: AppColors.borderColor,
+                    ),
+                ],
+              ],
+            ),
+          ),
+          const CustomSize(h: 14),
+          OutlinedButtonWidget(componentModel: componentModel),
+        ],
+      ),
     );
   }
 }
