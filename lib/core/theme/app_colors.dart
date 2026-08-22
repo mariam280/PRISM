@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class AppColors {
-  static const backGroundColor = Color(
-    0xff0D0D0F,
-  ); // used in different opacity level
+  static const backGroundColor = Color(0xff0D0D0F); 
   static const purbleColor = Color(0xff7C6CFF);
   static const grey = Color(0xffA1A1AA);
   static const kWhite = Color(0xffFFFFFF);
