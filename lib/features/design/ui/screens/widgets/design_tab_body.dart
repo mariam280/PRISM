@@ -8,7 +8,6 @@ import 'package:prism/features/design/ui/screens/widgets/typography_section.dart
 class DesignTabBody extends StatelessWidget {
   const DesignTabBody({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

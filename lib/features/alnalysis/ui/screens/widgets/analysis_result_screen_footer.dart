@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/utils/widgets/custom_button.dart';
 
@@ -10,9 +12,16 @@ class AnalysisResultScreenFooter extends StatelessWidget {
     return Column(
       spacing: 10,
       children: [
-        CustomButton(onTap: () {}, text: 'Open Blueprint →'),
         CustomButton(
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context).push(AppRouters.blueprint);
+          },
+          text: 'Open Blueprint →',
+        ),
+        CustomButton(
+          onTap: () {
+            GoRouter.of(context).go(AppRouters.analysis);
+          },
           text: '↻ Re-analyze',
           textColor: AppColors.kWhite,
           borderColor: Border.all(color: AppColors.grey.withAlpha(90)),
