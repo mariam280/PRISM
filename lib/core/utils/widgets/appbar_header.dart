@@ -13,9 +13,11 @@ class AppbarHeader extends StatelessWidget {
       spacing: 12,
       children: [
         GestureDetector(
-          onTap: onTap ?? () {
-            GoRouter.of(context).pop();
-          },
+          onTap:
+              onTap ??
+              () {
+                GoRouter.of(context).pop();
+              },
           child: Container(
             width: 34,
             height: 34,
@@ -29,7 +31,7 @@ class AppbarHeader extends StatelessWidget {
             child: Icon(Icons.arrow_back, size: 16, color: AppColors.kWhite2),
           ),
         ),
-        Text(title, style: AppStyles.boldInter17(context)),
+        Flexible(child: Text(title, style: AppStyles.boldInter17(context))),
       ],
     );
   }
