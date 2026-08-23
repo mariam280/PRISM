@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
+import 'package:prism/core/utils/function/show_snackbar.dart';
 import 'package:prism/core/utils/widgets/custom_card.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/design/data/models/color_swatch_model.dart';
@@ -14,9 +15,7 @@ class ColorRow extends StatelessWidget {
 
   void _copyHex(BuildContext context) {
     Clipboard.setData(ClipboardData(text: colorSwatch.hex));
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('${colorSwatch.hex} copied')),
-    );
+    showSnackBar(context, '${colorSwatch.hex} copied');
   }
 
   @override
@@ -42,14 +41,14 @@ class ColorRow extends StatelessWidget {
                 children: [
                   Text(
                     colorSwatch.name,
-                    style: AppStyles.semiBoldInter13_2(context)
+                    style: AppStyles.semiBoldInter13_2(context),
                   ),
                   const CustomSize(h: 2),
                   Text(
                     colorSwatch.hex,
-                    style: AppStyles.regularInter11(context).copyWith(
-                      color: AppColors.grey,
-                    ),
+                    style: AppStyles.regularInter11(
+                      context,
+                    ).copyWith(color: AppColors.grey),
                   ),
                 ],
               ),

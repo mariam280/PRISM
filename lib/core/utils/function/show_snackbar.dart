@@ -9,17 +9,19 @@ void showSnackBar(BuildContext context, String message) {
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       duration: const Duration(seconds: 3),
-      margin: EdgeInsets.symmetric(vertical: AppPadding.p20(context), horizontal: AppPadding.p20(context)),
+      margin: EdgeInsets.symmetric(
+        vertical: AppPadding.p20(context),
+        horizontal: AppPadding.p20(context),
+      ),
       content: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [AppColors.cardsColor, AppColors.purbleColor],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          color: AppColors.purbleColor.withValues(alpha: 0.7),
           borderRadius: BorderRadius.circular(20),
         ),
-        padding: EdgeInsets.symmetric(vertical: AppPadding.p8(context), horizontal: AppPadding.p16(context)),
+        padding: EdgeInsets.symmetric(
+          vertical: AppPadding.p8(context),
+          horizontal: AppPadding.p16(context),
+        ),
         child: Text(
           message,
           style: const TextStyle(color: AppColors.kWhite, fontSize: 16),
