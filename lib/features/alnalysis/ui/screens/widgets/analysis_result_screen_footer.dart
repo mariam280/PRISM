@@ -5,17 +5,15 @@ import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/utils/widgets/custom_button.dart';
 
 class AnalysisResultScreenFooter extends StatelessWidget {
-  const AnalysisResultScreenFooter({super.key});
-
+  const AnalysisResultScreenFooter({super.key, this.onTapBlueprint});
+  final void Function()? onTapBlueprint;
   @override
   Widget build(BuildContext context) {
     return Column(
       spacing: 10,
       children: [
         CustomButton(
-          onTap: () {
-            GoRouter.of(context).push(AppRouters.blueprint);
-          },
+          onTap: onTapBlueprint,
           text: 'Open Blueprint →',
         ),
         CustomButton(
