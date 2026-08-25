@@ -1,5 +1,4 @@
-class Failure {
+abstract class Failuer {
   final String errorMessage;
-
-  Failure({required this.errorMessage});
+  Failuer(this.errorMessage);
 }
