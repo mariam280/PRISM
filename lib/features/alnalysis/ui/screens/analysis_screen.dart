@@ -7,7 +7,7 @@ class AnalysisScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(child: AnalysisScreenBody()),
+      body: SafeArea(child: AnalysiScreenBody()),
     );
   }
 }
