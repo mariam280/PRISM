@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 
 class BlueprintAppbar extends StatelessWidget {
-  const BlueprintAppbar({super.key, required this.title});
+  const BlueprintAppbar({super.key, required this.title, this.onTap});
   final String title;
+  final  Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,9 +14,7 @@ class BlueprintAppbar extends StatelessWidget {
         spacing: 12,
         children: [
           GestureDetector(
-            onTap: () {
-              GoRouter.of(context).go(AppRouters.analysisResult);
-            },
+            onTap: onTap,
             child: Container(
               width: 34,
               height: 34,

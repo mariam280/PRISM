@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/utils/widgets/appbar_header.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/home/ui/screens/widgets/analysis_info_note.dart';
@@ -10,6 +14,7 @@ class ReviewScreenshotBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var imageFile = File('file.txt');
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 28, bottom: 20),
       child: SingleChildScrollView(
@@ -22,7 +27,11 @@ class ReviewScreenshotBody extends StatelessWidget {
             const CustomSize(h: 13),
             AnalysisInfoNote(),
             const CustomSize(h: 24),
-            ReviewScreenshotFooterButtons(onTapAnalysis: () {}),
+            ReviewScreenshotFooterButtons(
+              onTapAnalysis: () {
+                GoRouter.of(context).go(AppRouters.analysis, extra: imageFile);
+              },
+            ),
           ],
         ),
       ),

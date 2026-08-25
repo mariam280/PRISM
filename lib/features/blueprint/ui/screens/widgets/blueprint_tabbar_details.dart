@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:prism/features/alnalysis/data/models/analysis_result_model.dart';
 import 'package:prism/features/blueprint/ui/screens/widgets/blueprint_tabbar.dart';
 import 'package:prism/features/components/ui/screens/component_tab_screen.dart';
 import 'package:prism/features/design/ui/screens/design_tab_screen.dart';
+import 'package:prism/features/home/data/models/recent_project_model.dart';
 import 'package:prism/features/overview/ui/screen/overview_tab_screen.dart';
 
 class BlueprintTabbarDetails extends StatefulWidget {
-  const BlueprintTabbarDetails({super.key});
+  const BlueprintTabbarDetails({super.key, required this.analysisResult, required this.recentProject});
+  final AnalysisResultModel analysisResult;
+  final RecentProjectModel recentProject;
 
   @override
   State<BlueprintTabbarDetails> createState() => _BlueprintTabbarDetailsState();
