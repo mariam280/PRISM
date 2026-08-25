@@ -1,6 +1,12 @@
 // GoRouter configuration
+import 'dart:io';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:prism/core/helpers/id.dart';
 import 'package:prism/core/routing/app_routers.dart';
+import 'package:prism/features/alnalysis/data/repos/analysis_repo_impl.dart';
+import 'package:prism/features/alnalysis/ui/logic/cubit/snalysis_cubit.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_result_screen.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
@@ -64,14 +70,19 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouters.analysis,
-        builder: (context, state) => const AnalysisScreen(),
+        builder: (context, state) {
+          final imageFile = state.extra as File;
+          return BlocProvider(
+            create: (_) => AnalysisCubit(getIt<AnalysisRepoImpl>())
+              ..analyzeScreenshot(imageFile),
+            child: AnalysisScreen(),
+          );
+        },
       ),
       GoRoute(
         path: AppRouters.blueprint,
-        builder: (context, state) => const BlueprintScreen()),
-      // GoRoute(
-      //   path: AppRouters.setting,
-      //   builder: (context, state) => const SettingScreen()),
+        builder: (context, state) => const BlueprintScreen(),
+      ),
     ],
   );
 }
