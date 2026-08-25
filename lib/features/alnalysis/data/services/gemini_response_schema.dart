@@ -1,3 +1,14 @@
+/// This file documents the exact JSON shape we ask Gemini to return.
+/// It maps 1:1 to our Dart models:
+///   - projectMeta      → RecentProjectModel (name, type, subType)
+///   - overview         → OverviewModel
+///   - design           → DesignModel
+///   - components       → List<ComponentModel>
+///
+/// Gemini's `responseSchema` (sent in the request config) forces the
+/// model to return JSON matching this exact structure — no free text,
+/// no missing fields, no renamed keys.
+
 const geminiResponseSchema = {
   "type": "OBJECT",
   "properties": {
@@ -140,6 +151,14 @@ const geminiResponseSchema = {
                 "'Interactive · 48 px'."
           },
           "isAiDetected": {"type": "BOOLEAN"},
+          "box_2d": {
+            "type": "ARRAY",
+            "items": {"type": "INTEGER"},
+            "description": "The component's bounding box as "
+                "[ymin, xmin, ymax, xmax], each normalized to 0-1000 "
+                "relative to the full screenshot's height/width. Used to "
+                "crop this exact component out of the screenshot."
+          },
           "specs": {
             "type": "ARRAY",
             "items": {
@@ -153,7 +172,7 @@ const geminiResponseSchema = {
             }
           }
         },
-        "required": ["name", "subtitleType", "isAiDetected", "specs"]
+        "required": ["name", "subtitleType", "isAiDetected", "box_2d", "specs"]
       }
     }
   },

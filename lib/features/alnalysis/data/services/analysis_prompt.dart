@@ -15,7 +15,14 @@ Your analysis must cover:
    spacing scale, and shape (border radius / shadow) conventions.
 4. Every distinct UI component visible (buttons, inputs, cards, nav
    bars, etc.), each with its own basic specs (type, approximate size,
-   radius, etc.).
+   radius, etc.) AND its bounding box.
+
+Bounding box format:
+- For each component, return "box_2d" as [ymin, xmin, ymax, xmax].
+- Each value must be an integer normalized to 0-1000, relative to the
+  full screenshot's height (for y values) and width (for x values).
+- The box must tightly enclose the component as it appears in the
+  screenshot — not the whole screen, just that one component.
 
 Rules:
 - If a value is visually obvious and clearly sampled from the image
