@@ -8,4 +8,12 @@ class ComponentSpecModel {
   final String label;
   final String value;
   final bool isEstimated;
+
+  factory ComponentSpecModel.fromJson(Map<String, dynamic> json) {
+    return ComponentSpecModel(
+      label: json['label'] as String,
+      value: json['value'] as String,
+      isEstimated: json['isEstimated'] as bool? ?? true,
+    );
+  }
 }

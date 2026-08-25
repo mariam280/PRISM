@@ -8,4 +8,12 @@ class TypographySpecModel {
   final String label;
   final String spec;
   final bool isAiDetected;
+
+  factory TypographySpecModel.fromJson(Map<String, dynamic> json) {
+    return TypographySpecModel(
+      label: json['label'] as String,
+      spec: json['spec'] as String,
+      isAiDetected: json['isAiDetected'] as bool,
+    );
+  }
 }

@@ -15,13 +15,25 @@ class ComponentModel {
   final String subtitleType;
   final bool isAiDetected;
   final List<ComponentSpecModel> specs;
-
-  /// NOT USED YET. Path to the full screenshot this component was
-  /// detected in — will be used together with [boundingBox] to crop out
-  /// the component's real preview once that logic is built.
   final String? screenshotPath;
-
-  /// NOT USED YET. The component's position within the screenshot
-  /// (in pixels), e.g. {x, y, width, height} — will drive the crop.
   final ComponentBoundingBoxModel? boundingBox;
+
+  factory ComponentModel.fromJson(
+    Map<String, dynamic> json, {
+    String? screenshotPath,
+  }) {
+    final box2d = json['box_2d'] as List?;
+    return ComponentModel(
+      name: json['name'] as String,
+      subtitleType: json['subtitleType'] as String,
+      isAiDetected: json['isAiDetected'] as bool,
+      specs: (json['specs'] as List)
+          .map((e) => ComponentSpecModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      screenshotPath: screenshotPath,
+      boundingBox: box2d != null
+          ? ComponentBoundingBoxModel.fromJson(box2d)
+          : null,
+    );
+  }
 }
