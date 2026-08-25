@@ -12,6 +12,21 @@ class DesignModel {
 
   final List<ColorSwatchModel> colors;
   final List<TypographySpecModel> typography;
-  final List<int> spacing;     /// Spacing scale values in px, e.g. [8, 16, 24, 32].
+
+  /// Spacing scale values in px, e.g. [8, 16, 24, 32].
+  final List<int> spacing;
   final ShapeInfoModel shape;
+
+  factory DesignModel.fromJson(Map<String, dynamic> json) {
+    return DesignModel(
+      colors: (json['colors'] as List)
+          .map((e) => ColorSwatchModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      typography: (json['typography'] as List)
+          .map((e) => TypographySpecModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      spacing: List<int>.from(json['spacing'] as List),
+      shape: ShapeInfoModel.fromJson(json['shape'] as Map<String, dynamic>),
+    );
+  }
 }
