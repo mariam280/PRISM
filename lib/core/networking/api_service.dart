@@ -5,16 +5,6 @@ class ApiService {
   final Dio dio;
 
   ApiService({required this.dio}) {
-    dio.interceptors.add(
-      LogInterceptor(
-        request: true,
-        requestHeader: true,
-        requestBody: true,
-        responseHeader: true,
-        responseBody: true,
-        error: true,
-      ),
-    );
     dio.options = BaseOptions(
       baseUrl: dotenv.env['BaseUrl']!,
       headers: {'Content-Type': 'application/json'},
@@ -24,6 +14,16 @@ class ApiService {
       responseType: ResponseType.json,
       followRedirects: false,
     );
+
+    dio.interceptors.add(
+      LogInterceptor(
+         request: true,
+    requestBody: false,
+    responseBody: false,
+    error: true,
+      ),
+    );
+    
   }
 
   String get _apiKey => dotenv.env['GEMINI_API_KEY'] ?? '';

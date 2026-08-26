@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:prism/core/helpers/id.dart';
 import 'package:prism/core/routing/app_routers.dart';
-import 'package:prism/features/alnalysis/data/repos/analysis_repo_impl.dart';
+import 'package:prism/features/alnalysis/data/repos/analysis_repo.dart';
 import 'package:prism/features/alnalysis/ui/logic/cubit/snalysis_cubit.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_result_screen.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
@@ -73,7 +73,7 @@ abstract class AppRouter {
         builder: (context, state) {
           final imageFile = state.extra as File;
           return BlocProvider(
-            create: (_) => AnalysisCubit(getIt<AnalysisRepoImpl>())
+            create: (_) => AnalysisCubit(getIt<AnalysisRepo>())
               ..analyzeScreenshot(imageFile),
             child: AnalysisScreen(),
           );
