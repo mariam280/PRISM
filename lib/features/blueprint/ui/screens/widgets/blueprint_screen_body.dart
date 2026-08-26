@@ -24,12 +24,14 @@ class BlueprintScreenBody extends StatelessWidget {
               extra: {'result': result, 'project': project},
             );
           },
-          title: 'E-commerce Home',
+          title: project.name,
         ),
-        Expanded(child: BlueprintTabbarDetails(
-          analysisResult: result,
-          recentProject: project,
-        )),
+        Expanded(
+          child: BlueprintTabbarDetails(
+            analysisResult: result,
+            recentProject: project,
+          ),
+        ),
       ],
     );
   }

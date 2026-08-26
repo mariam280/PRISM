@@ -7,7 +7,12 @@ import 'package:prism/features/home/data/models/recent_project_model.dart';
 import 'package:prism/features/overview/ui/screen/overview_tab_screen.dart';
 
 class BlueprintTabbarDetails extends StatefulWidget {
-  const BlueprintTabbarDetails({super.key, required this.analysisResult, required this.recentProject});
+  const BlueprintTabbarDetails({
+    super.key,
+    required this.analysisResult,
+    required this.recentProject,
+  });
+
   final AnalysisResultModel analysisResult;
   final RecentProjectModel recentProject;
 
@@ -28,9 +33,13 @@ class _BlueprintTabbarDetailsState extends State<BlueprintTabbarDetails> {
         ),
         Expanded(
           child: switch (_selectedTab) {
-            'Overview' => const OverviewTabScreen(),
-            'Design' => const DesignTabScreen(),
-            'Components' => const ComponentTabScreen(),
+            'Overview' => OverviewTabScreen(
+                overview: widget.analysisResult.overview,
+              ),
+            'Design' => DesignTabScreen(design: widget.analysisResult.design),
+            'Components' => ComponentTabScreen(
+                components: widget.analysisResult.components,
+              ),
             _ => const SizedBox.shrink(),
           },
         ),
