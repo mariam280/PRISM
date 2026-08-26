@@ -27,9 +27,9 @@ class AnalysisResultScreenBody extends StatelessWidget {
               onTap: () {
                 GoRouter.of(context).go(AppRouters.layout);
               },
-              title: 'Fitness Dashboard',
+              title: project.name,
             ),
-            AnalysisResultScreenContent(),
+            AnalysisResultScreenContent(project: project),
             AnalysisResultScreenFooter(
               onTapBlueprint: () {
                 GoRouter.of(context).go(

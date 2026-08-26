@@ -1,9 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:prism/core/constants/app_images.dart';
+import 'package:intl/intl.dart';
 import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_item_card.dart';
+import 'package:prism/features/home/data/models/recent_project_model.dart';
 
 class AnalysisResultScreenContent extends StatelessWidget {
-  const AnalysisResultScreenContent({super.key});
+  const AnalysisResultScreenContent({super.key, required this.project});
+
+  final RecentProjectModel project;
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +17,8 @@ class AnalysisResultScreenContent extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            Assets.imagesBigCoverProject,
+          child: Image.file(
+            File(project.image),
             fit: BoxFit.cover,
             width: double.infinity,
           ),
@@ -24,16 +29,16 @@ class AnalysisResultScreenContent extends StatelessWidget {
             Expanded(
               child: AnalysisResultItemCard(
                 title: 'Created',
-                subTitle: 'Aug 12',
+                subTitle: DateFormat('M/d/yyyy').format(project.timeAgo),
               ),
             ),
             Expanded(
               child: AnalysisResultItemCard(
                 title: 'Type',
-                subTitle: 'Dashboard',
+                subTitle: project.subType,
               ),
             ),
-            Expanded(
+            const Expanded(
               child: AnalysisResultItemCard(title: 'Status', subTitle: 'Ready'),
             ),
           ],
