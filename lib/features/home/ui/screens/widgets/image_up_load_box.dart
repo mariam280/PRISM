@@ -4,20 +4,10 @@ import 'package:prism/core/constants/app_images.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
-
 class ImageUpLoadedBox extends StatelessWidget {
-  final void Function()? onTap;
   const ImageUpLoadedBox({super.key, this.onTap});
-  // final Function(File) onImageSelected;
-  // final File? imageFile;
 
-  // Future<void> pickImage(BuildContext context) async {
-  //   final picker = ImagePicker();
-  //   final picked = await picker.pickImage(source: ImageSource.gallery);
-  //   if (picked != null) {
-  //     onImageSelected(File(picked.path));
-  //   }
-  // }
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +29,22 @@ class ImageUpLoadedBox extends StatelessWidget {
             color: AppColors.purbleColor.withValues(alpha: 0.04),
             borderRadius: BorderRadius.circular(20),
           ),
-          child:
-              // imageFile != null
-              //     ? ClipRRect(
-              //         borderRadius: BorderRadius.circular(10),
-              //         child: Image.file(
-              //           imageFile!,
-              //           fit: BoxFit.cover,
-              //           width: double.infinity,
-              //         ),
-              //       ):
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  //const Icon(Icons.cloud_upload, size: 50, color: Colors.grey),
-                  Image.asset(Assets.imagesUploadImageIcon),
-                  const CustomSize(h: 18),
-                  Text(
-                    "Upload ScreenShot",
-                    style: AppStyles.semiBoldInter15(context),
-                  ),
-                  const CustomSize(h: 6),
-                  Text(
-                    'JPG · PNG · WEBP',
-                    style: AppStyles.regularInter11(context),
-                  ),
-                ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(Assets.imagesUploadImageIcon),
+              const CustomSize(h: 18),
+              Text(
+                "Upload ScreenShot",
+                style: AppStyles.semiBoldInter15(context),
               ),
+              const CustomSize(h: 6),
+              Text(
+                'JPG · PNG · WEBP',
+                style: AppStyles.regularInter11(context),
+              ),
+            ],
+          ),
         ),
       ),
     );
