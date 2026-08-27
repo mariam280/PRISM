@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/cache/get_storage_helper.dart';
 import 'package:prism/core/constants/app_images.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
@@ -10,6 +11,7 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final name = GetStorageHelper.getGetStorageData(key: 'userName');
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 24),
       child: SingleChildScrollView(
@@ -19,7 +21,7 @@ class HomeScreenBody extends StatelessWidget {
           children: [
             Image.asset(Assets.imagesPrismLogo, width: 24, height: 24),
             CustomSize(h: 16),
-            Text('Good afternoon, User', style: AppStyles.boldInter22(context)),
+            Text('Good afternoon, $name', style: AppStyles.boldInter22(context)),
             Text(
               'Ready to uncover a new interface?',
               style: AppStyles.regularInter14(context),
