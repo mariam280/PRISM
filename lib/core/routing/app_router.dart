@@ -9,6 +9,9 @@ import 'package:prism/features/alnalysis/data/repos/analysis_repo.dart';
 import 'package:prism/features/alnalysis/ui/logic/cubit/snalysis_cubit.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_result_screen.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
+import 'package:prism/features/auth/data/repos/auth_repo.dart';
+import 'package:prism/features/auth/ui/logic/log_in_cubit/login_cubit.dart';
+import 'package:prism/features/auth/ui/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
 import 'package:prism/features/blueprint/ui/screens/blueprint_screen.dart';
@@ -46,11 +49,17 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouters.register,
-        builder: (context, state) => const SignupScreen(),
+        builder: (context, state) => BlocProvider(
+          create: (_) => SignUpCubit(getIt<AuthRepo>()),
+          child: const SignupScreen(),
+        ),
       ),
       GoRoute(
         path: AppRouters.signIn,
-        builder: (context, state) => const SigninScreen(),
+        builder: (context, state) => BlocProvider(
+        create: (_) => LoginCubit(getIt<AuthRepo>()),
+          child: const SigninScreen(),
+        ),
       ),
       GoRoute(
         path: AppRouters.uploadImage,
@@ -73,8 +82,9 @@ abstract class AppRouter {
         builder: (context, state) {
           final imageFile = state.extra as File;
           return BlocProvider(
-            create: (_) => AnalysisCubit(getIt<AnalysisRepo>())
-              ..analyzeScreenshot(imageFile),
+            create: (_) =>
+                AnalysisCubit(getIt<AnalysisRepo>())
+                  ..analyzeScreenshot(imageFile),
             child: AnalysisScreen(),
           );
         },

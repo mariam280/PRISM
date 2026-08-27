@@ -3,7 +3,7 @@ import 'package:prism/core/errors/auth_failuer.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class AuthRepoImplementation implements AuthRepo {
+class AuthRepoImpl implements AuthRepo {
   final SupabaseClient _supabase = Supabase.instance.client;
 
   @override
