@@ -80,7 +80,7 @@ class _AnalysisScreenState extends State<AnalysiScreenBody> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Lottie.asset('assets/animation/document_ocr _scan.json'),
+                Lottie.asset('assets/animation/Document_OCR_Scan.json'),
                 const CustomSize(h: 20),
                 Text(
                   'Analyzing your interface',

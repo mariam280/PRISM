@@ -23,6 +23,7 @@ class AnalysisResultItemCard extends StatelessWidget {
         ),
       ),
       child: Column(
+        spacing: 4,
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +54,13 @@ class AnalysisResultItemCard extends StatelessWidget {
                     ],
                   ),
                 ),
-              Text(subTitle, style: AppStyles.semiBoldInter12_2(context)),
+              Flexible(
+                child: Text(
+                  subTitle,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.semiBoldInter12_2(context),
+                ),
+              ),
             ],
           ),
         ],

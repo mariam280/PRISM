@@ -29,12 +29,13 @@ class _ComponentTabBodyState extends State<ComponentTabBody> {
 
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'UI elements PRISM detected in this screen.',
-            style: AppStyles.regularInter12(context).copyWith(
-              color: AppColors.grey,
-            ),
+            'UI elements detected in this screen.',
+            style: AppStyles.regularInter12(
+              context,
+            ).copyWith(color: AppColors.grey),
           ),
           const CustomSize(h: 18),
           for (var i = 0; i < widget.components.length; i++) ...[

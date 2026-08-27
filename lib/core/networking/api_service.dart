@@ -8,9 +8,9 @@ class ApiService {
     dio.options = BaseOptions(
       baseUrl: dotenv.env['BaseUrl']!,
       headers: {'Content-Type': 'application/json'},
-      receiveTimeout: const Duration(seconds: 30),
-      connectTimeout: const Duration(seconds: 30),
-      sendTimeout: const Duration(seconds: 30),
+      receiveTimeout: const Duration(seconds: 60),
+      connectTimeout: const Duration(seconds: 60),
+      sendTimeout: const Duration(seconds: 60),
       responseType: ResponseType.json,
       followRedirects: false,
     );

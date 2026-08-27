@@ -18,7 +18,7 @@ class StructureSectionList extends StatelessWidget {
         itemBuilder: (context, index) {
           return StructureItem(label: items[index]);
         },
-        separatorBuilder: (_, __) =>
+        separatorBuilder: (_, _) =>
             Divider(thickness: 0.6, color: AppColors.borderColor),
         itemCount: items.length,
       ),

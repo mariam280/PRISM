@@ -19,7 +19,7 @@ class AnalysisResultScreenContent extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Image.file(
             File(project.image),
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
             width: double.infinity,
           ),
         ),

@@ -32,7 +32,7 @@ class ComponentPreview extends StatelessWidget {
         Assets.imagesNavBarPlaceHolder,
         height: height,
         width: double.infinity,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }

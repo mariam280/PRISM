@@ -17,7 +17,7 @@ class StatsGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
-        childAspectRatio: 2.2,
+        childAspectRatio: 2.1,
       ),
       itemBuilder: (context, index) {
         return StatCard(statModel: stats[index]);

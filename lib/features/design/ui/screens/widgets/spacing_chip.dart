@@ -12,10 +12,9 @@ class SpacingChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lineThickness = 2 + (value / maxValue) * 4;
+    final lineThickness = 2 + (value / maxValue) * 6;
 
     return CustomCard(
-      //radius: 12,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: Column(

@@ -8,6 +8,7 @@
 /// Gemini's `responseSchema` (sent in the request config) forces the
 /// model to return JSON matching this exact structure — no free text,
 /// no missing fields, no renamed keys.
+library;
 
 const geminiResponseSchema = {
   "type": "OBJECT",
