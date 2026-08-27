@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:prism/core/errors/auth_failuer.dart';
-import 'package:prism/features/auth/data/models/user_model.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -8,46 +7,36 @@ class AuthRepoImplementation implements AuthRepo {
   final SupabaseClient _supabase = Supabase.instance.client;
 
   @override
-  Future<Either<AuthFailure, UserModel>> signUp({
+  Future<Either<AuthFailure, void>> signUp({
     required String email,
     required String password,
     required String name,
   }) async {
     try {
-      final response = await _supabase.auth.signUp(
+      await _supabase.auth.signUp(
         email: email,
         password: password,
-        data: {'name': name},
+        data: {
+          'name': name,
+        },
       );
 
-      final user = response.user;
-
-      if (user == null) {
-        return left(
-          SupabaseAuthFailure(
-            message: 'Something went wrong while creating your account.',
-          ),
-        );
-      }
-
-      final userModel = UserModel(
-        uid: user.id,
-        email: user.email ?? email,
-        name: user.userMetadata?['name'] ?? name,
-      );
-
-      return right(userModel);
+      return right(null);
     } on AuthException catch (e) {
-      return left(SupabaseAuthFailure.fromAuthException(e));
+      return left(
+        SupabaseAuthFailure.fromAuthException(e),
+      );
     } catch (e) {
       return left(
-        SupabaseAuthFailure(message: 'Something went wrong. Please try again.'),
+        SupabaseAuthFailure(
+          message: 'Something went wrong. Please try again.',
+        ),
       );
     }
   }
 
   @override
-  Future<Either<AuthFailure, UserModel>> signIn({
+  Future<Either<AuthFailure, String>> signIn({
     required String email,
     required String password,
   }) async {
@@ -61,22 +50,32 @@ class AuthRepoImplementation implements AuthRepo {
 
       if (user == null) {
         return left(
-          SupabaseAuthFailure(message: 'Unable to login. Please try again.'),
+          SupabaseAuthFailure(
+            message: 'Unable to login. Please try again.',
+          ),
         );
       }
 
-      final userModel = UserModel(
-        uid: user.id,
-        email: user.email ?? email,
-        name: user.userMetadata?['name'] ?? '',
-      );
+      final name = user.userMetadata?['name']?.toString();
 
-      return right(userModel);
+      if (name == null || name.isEmpty) {
+        return left(
+          SupabaseAuthFailure(
+            message: 'User name not found.',
+          ),
+        );
+      }
+
+      return right(name);
     } on AuthException catch (e) {
-      return left(SupabaseAuthFailure.fromAuthException(e));
+      return left(
+        SupabaseAuthFailure.fromAuthException(e),
+      );
     } catch (e) {
       return left(
-        SupabaseAuthFailure(message: 'Something went wrong. Please try again.'),
+        SupabaseAuthFailure(
+          message: 'Something went wrong. Please try again.',
+        ),
       );
     }
   }
@@ -88,10 +87,14 @@ class AuthRepoImplementation implements AuthRepo {
 
       return right(null);
     } on AuthException catch (e) {
-      return left(SupabaseAuthFailure.fromAuthException(e));
+      return left(
+        SupabaseAuthFailure.fromAuthException(e),
+      );
     } catch (e) {
       return left(
-        SupabaseAuthFailure(message: 'Something went wrong. Please try again.'),
+        SupabaseAuthFailure(
+          message: 'Something went wrong. Please try again.',
+        ),
       );
     }
   }

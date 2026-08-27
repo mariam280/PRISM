@@ -1,15 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:prism/core/errors/auth_failuer.dart';
-import 'package:prism/features/auth/data/models/user_model.dart';
 
 abstract class AuthRepo {
-  Future<Either<AuthFailure, UserModel>> signUp({
+  Future<Either<AuthFailure, void>> signUp({
     required String email,
     required String password,
     required String name,
   });
 
-  Future<Either<AuthFailure, UserModel>> signIn({
+  Future<Either<AuthFailure, String>> signIn({
     required String email,
     required String password,
   });
