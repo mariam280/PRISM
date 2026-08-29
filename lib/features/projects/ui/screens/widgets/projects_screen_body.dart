@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/theme/app_styles.dart';
-import 'package:prism/core/utils/widgets/custom_text_feild.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/projects/ui/screens/widgets/filter_and_projects_section.dart';
 
@@ -22,9 +21,7 @@ class ProjectsScreenBody extends StatelessWidget {
               style: AppStyles.regularInter14(context),
             ),
             const CustomSize(h: 24),
-            CustomTextField(hint: 'Search projects'),
-            const CustomSize(h: 16),
-            FilterAndProjectsSection(),
+            const FilterAndProjectsSection(),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.2),
           ],
         ),
