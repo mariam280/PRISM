@@ -7,6 +7,7 @@ class RecentProjectModel {
     required this.image,
     required this.subType,
     this.isFavorite = false,
+    this.analysisResultJson,
   });
 
   final String? id;
@@ -16,6 +17,7 @@ class RecentProjectModel {
   final String subType;
   final DateTime timeAgo;
   final bool isFavorite;
+  final Map<String, dynamic>? analysisResultJson;
 
   factory RecentProjectModel.fromAnalysis(
     Map<String, dynamic> projectMetaJson, {
@@ -41,6 +43,7 @@ class RecentProjectModel {
       image: row['image_url'] as String,
       timeAgo: DateTime.parse(row['created_at'] as String),
       isFavorite: row['is_favorite'] as bool? ?? false,
+      analysisResultJson: row['analysis_result'] as Map<String, dynamic>?,
     );
   }
 

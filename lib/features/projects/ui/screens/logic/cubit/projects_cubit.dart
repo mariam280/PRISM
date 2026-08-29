@@ -7,7 +7,7 @@ class ProjectsCubit extends Cubit<ProjectsState> {
 
   final ProjectRepo projectRepo;
 
-  Future<void> fetchProjects({int? limit}) async {
+  Future<void> getProjects({int? limit}) async {
     emit(ProjectsLoading());
 
     final result = await projectRepo.getProjects(limit: limit);

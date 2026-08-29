@@ -22,6 +22,8 @@ import 'package:prism/features/onboarding/ui/screens/onboarding_screen.dart';
 import 'package:prism/features/auth/ui/screens/forgot_password_screen.dart';
 import 'package:prism/features/auth/ui/screens/welcome_screen.dart';
 import 'package:prism/features/profile/ui/screens/appearance_screen.dart';
+import 'package:prism/features/projects/data/repos/project_repo.dart';
+import 'package:prism/features/projects/ui/screens/logic/cubit/projects_cubit.dart';
 import 'package:prism/features/splash/ui/screens/splash_screen.dart';
 
 abstract class AppRouter {
@@ -41,7 +43,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouters.layout,
-        builder: (context, state) => const LayoutScreen(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => ProjectsCubit(getIt<ProjectRepo>())
+          ..getProjects(),
+          child: const LayoutScreen(),
+        ),
       ),
       GoRoute(
         path: AppRouters.onBoarding,
@@ -57,7 +63,7 @@ abstract class AppRouter {
       GoRoute(
         path: AppRouters.signIn,
         builder: (context, state) => BlocProvider(
-        create: (_) => LoginCubit(getIt<AuthRepo>()),
+          create: (_) => LoginCubit(getIt<AuthRepo>()),
           child: const SigninScreen(),
         ),
       ),
