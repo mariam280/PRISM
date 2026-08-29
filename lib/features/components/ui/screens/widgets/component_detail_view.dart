@@ -23,11 +23,12 @@ class ComponentDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              AppbarHeader(title: componentModel.name, onTap: onBack),
+              Expanded(child: AppbarHeader(title: componentModel.name, onTap: onBack)),
               DetectionBadge(isAiDetected: componentModel.isAiDetected),
             ],
           ),
@@ -43,7 +44,6 @@ class ComponentDetailView extends StatelessWidget {
           ),
           const CustomSize(h: 16),
           CustomCard(
-            //clip: true,
             child: Column(
               children: [
                 for (var i = 0; i < componentModel.specs.length; i++) ...[

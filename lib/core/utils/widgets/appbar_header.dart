@@ -31,7 +31,10 @@ class AppbarHeader extends StatelessWidget {
             child: Icon(Icons.arrow_back, size: 16, color: AppColors.kWhite2),
           ),
         ),
-        Flexible(child: Text(title, style: AppStyles.boldInter17(context))),
+        Flexible(child: Text(title,
+        maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+         style: AppStyles.boldInter17(context))),
       ],
     );
   }
