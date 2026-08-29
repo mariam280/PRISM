@@ -14,29 +14,31 @@ class SigninScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-      child: Column(
-        spacing: 24,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const WelcomeWordmark(),
-          Spacer(),
-          Row(
-            children: [
-              Icon(Icons.arrow_back, size: 16, color: AppColors.grey),
-              CustomTextButton(
-                text: "back",
-                textColor: AppColors.grey,
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
-              ),
-            ],
-          ),
-          Text('Sign in', style: AppStyles.boldInter22(context)),
-          SigninForm(),
-          const SignupPrompt(),
-          Spacer(),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          spacing: 24,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const WelcomeWordmark(),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
+            Row(
+              children: [
+                Icon(Icons.arrow_back, size: 16, color: AppColors.grey),
+                CustomTextButton(
+                  text: "back",
+                  textColor: AppColors.grey,
+                  onPressed: () {
+                    GoRouter.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+            Text('Sign in', style: AppStyles.boldInter22(context)),
+            SigninForm(),
+            const SignupPrompt(),
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.09),
+          ],
+        ),
       ),
     );
   }

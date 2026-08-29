@@ -20,7 +20,7 @@ class SupabaseAuthFailure extends AuthFailure {
 
     if (message.contains('invalid login credentials')) {
       return SupabaseAuthFailure(
-        message: 'Incorrect email or password.',
+        message: 'email not found or incorrect password.',
       );
     }
 
