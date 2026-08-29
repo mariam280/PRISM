@@ -4,7 +4,7 @@ import 'package:prism/features/home/data/models/recent_project_model.dart';
 
 final List<RecentProjectModel> projectsList = [
   RecentProjectModel(
-    id: 1,
+    id: null,
     name: 'E-Commerce Home',
     type: 'Mobile',
     subType: 'Home Screen',
@@ -12,7 +12,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 1)),
   ),
   RecentProjectModel(
-    id: 2,
+    id: null,
     name: 'Checkout Flow',
     type: 'Mobile',
     subType: 'Checkout',
@@ -20,7 +20,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 2)),
   ),
   RecentProjectModel(
-    id: 3,
+    id: null,
     name: 'Fitness Dashboard',
     type: 'Mobile',
     subType: 'Dashboard',
@@ -29,7 +29,7 @@ final List<RecentProjectModel> projectsList = [
   ),
   /////////////
   RecentProjectModel(
-    id: 1,
+    id: null,
     name: 'E-Commerce Home',
     type: 'Mobile',
     subType: 'Home Screen',
@@ -37,7 +37,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 1)),
   ),
   RecentProjectModel(
-    id: 2,
+    id: null,
     name: 'Checkout Flow',
     type: 'Mobile',
     subType: 'Checkout',
@@ -45,7 +45,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 2)),
   ),
   RecentProjectModel(
-    id: 3,
+    id: null,
     name: 'Fitness Dashboard',
     type: 'Mobile',
     subType: 'Dashboard',
@@ -53,7 +53,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 3)),
   ),
   RecentProjectModel(
-    id: 1,
+    id: null,
     name: 'E-Commerce Home',
     type: 'Mobile',
     subType: 'Home Screen',
@@ -61,7 +61,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 1)),
   ),
   RecentProjectModel(
-    id: 2,
+    id: null,
     name: 'Checkout Flow',
     type: 'Mobile',
     subType: 'Checkout',
@@ -69,7 +69,7 @@ final List<RecentProjectModel> projectsList = [
     timeAgo: DateTime.now().subtract(const Duration(days: 2)),
   ),
   RecentProjectModel(
-    id: 3,
+    id: null,
     name: 'Fitness Dashboard',
     type: 'Mobile',
     subType: 'Dashboard',

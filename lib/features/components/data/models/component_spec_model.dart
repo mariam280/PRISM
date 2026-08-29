@@ -16,4 +16,8 @@ class ComponentSpecModel {
       isEstimated: json['isEstimated'] as bool? ?? true,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'label': label, 'value': value, 'isEstimated': isEstimated};
+  }
 }

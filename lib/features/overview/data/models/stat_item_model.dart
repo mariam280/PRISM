@@ -10,4 +10,8 @@ class StatItemModel {
       label: json['label'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'value': value, 'label': label};
+  }
 }

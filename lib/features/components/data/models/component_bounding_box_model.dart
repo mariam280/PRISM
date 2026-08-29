@@ -31,4 +31,10 @@ class ComponentBoundingBoxModel {
       (yMax / 1000) * imageHeight,
     );
   }
+
+  /// Same [ymin, xmin, ymax, xmax] shape Gemini originally sent — kept
+  /// identical on the way back out so `fromJson` can read it unchanged.
+  List<int> toJson() {
+    return [yMin, xMin, yMax, xMax];
+  }
 }

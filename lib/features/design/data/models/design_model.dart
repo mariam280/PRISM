@@ -29,4 +29,13 @@ class DesignModel {
       shape: ShapeInfoModel.fromJson(json['shape'] as Map<String, dynamic>),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'colors': colors.map((e) => e.toJson()).toList(),
+      'typography': typography.map((e) => e.toJson()).toList(),
+      'spacing': spacing,
+      'shape': shape.toJson(),
+    };
+  }
 }

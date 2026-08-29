@@ -13,4 +13,8 @@ class ShapeInfoModel {
       shadow: json['shadow'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'borderRadius': borderRadius, 'shadow': shadow};
+  }
 }

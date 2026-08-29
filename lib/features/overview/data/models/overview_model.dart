@@ -20,4 +20,12 @@ class OverviewModel {
       structureItems: List<String>.from(json['structureItems'] as List),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'description': description,
+      'stats': stats.map((e) => e.toJson()).toList(),
+      'structureItems': structureItems,
+    };
+  }
 }

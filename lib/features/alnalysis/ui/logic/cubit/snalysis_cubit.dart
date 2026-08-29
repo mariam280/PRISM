@@ -20,7 +20,6 @@ class AnalysisCubit extends Cubit<AnalysisState> {
       (analysisResult) {
         final project = RecentProjectModel.fromAnalysis(
           analysisResult.projectMeta,
-          id: DateTime.now().millisecondsSinceEpoch,
           image: imageFile.path,
           timeAgo: DateTime.now(),
         );

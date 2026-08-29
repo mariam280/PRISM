@@ -16,4 +16,8 @@ class TypographySpecModel {
       isAiDetected: json['isAiDetected'] as bool,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'label': label, 'spec': spec, 'isAiDetected': isAiDetected};
+  }
 }

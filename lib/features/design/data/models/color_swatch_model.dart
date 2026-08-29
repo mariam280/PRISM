@@ -30,4 +30,11 @@ class ColorSwatchModel {
     final cleaned = hex.replaceAll('#', '');
     return Color(int.parse('FF$cleaned', radix: 16));
   }
+
+  Map<String, dynamic> toJson() {
+    // We serialize `hex` (the original string), not `color` — no need
+    // to reconstruct a hex string from the Color object since we still
+    // have the source string right here.
+    return {'name': name, 'hex': hex, 'isAiDetected': isAiDetected};
+  }
 }

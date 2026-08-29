@@ -11,6 +11,7 @@ class AnalysisResultModel {
   });
 
   final Map<String, dynamic> projectMeta;
+
   final OverviewModel overview;
   final DesignModel design;
   final List<ComponentModel> components;
@@ -34,5 +35,14 @@ class AnalysisResultModel {
           )
           .toList(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'projectMeta': projectMeta,
+      'overview': overview.toJson(),
+      'design': design.toJson(),
+      'components': components.map((e) => e.toJson()).toList(),
+    };
   }
 }
