@@ -11,7 +11,7 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = GetStorageHelper.getGetStorageData(key: 'userName');
+    final name = GetStorageHelper.getGetStorageData(key: 'userName') ?? 'User';
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 24),
       child: SingleChildScrollView(
