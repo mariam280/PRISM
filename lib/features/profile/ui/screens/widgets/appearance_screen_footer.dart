@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:prism/core/helpers/id.dart';
 import 'package:prism/core/theme/app_styles.dart';
+import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:prism/features/profile/ui/screens/widgets/profile_item.dart';
 
 class AppearanceScreenFooter extends StatelessWidget {
@@ -26,13 +28,16 @@ class AppearanceScreenFooter extends StatelessWidget {
               style: AppStyles.mediumInter13_2(context),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
-            child: Text(
-              'Delete account',
-              style: AppStyles.mediumInter13_2(
-                context,
-              ).copyWith(color: Color(0xFFF43F5E)),
+          InkWell(
+            onTap: () => getIt<AuthRepo>().signOut(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
+              child: Text(
+                'Delete account',
+                style: AppStyles.mediumInter13_2(
+                  context,
+                ).copyWith(color: Color(0xFFF43F5E)),
+              ),
             ),
           ),
         ],
