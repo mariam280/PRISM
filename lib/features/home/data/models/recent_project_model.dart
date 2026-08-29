@@ -46,6 +46,7 @@ class RecentProjectModel {
 
   Map<String, dynamic> toInsertJson({
     required String userId,
+    required String imageUrl,
     required Map<String, dynamic> analysisResultJson,
   }) {
     return {
@@ -53,7 +54,7 @@ class RecentProjectModel {
       'name': name,
       'platform_type': type,
       'screen_category': subType,
-      'image_url': image,
+      'image_url': imageUrl,
       'analysis_result': analysisResultJson,
       'is_favorite': isFavorite,
     };
