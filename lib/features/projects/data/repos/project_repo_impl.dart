@@ -52,6 +52,36 @@ class ProjectRepoImpl implements ProjectRepo {
     }
   }
 
+  @override
+  Future<Either<Failuer, List<RecentProjectModel>>> getProjects({
+    int? limit,
+  }) async {
+    try {
+      final userId = _supabase.auth.currentUser?.id;
+      if (userId == null) {
+        return Left(SupabaseFailer.notSignedIn());
+      }
+ 
+      final query = _supabase
+          .from(dotenv.env['Table_Name']!)
+          .select()
+          .eq('user_id', userId)
+          .order('created_at', ascending: false);
+ 
+      final rows = limit != null ? await query.limit(limit) : await query;
+ 
+      final projects = (rows as List)
+          .map((row) => RecentProjectModel.fromSupabaseRow(row as Map<String, dynamic>))
+          .toList();
+ 
+      return Right(projects);
+    } on PostgrestException catch (e) {
+      return Left(SupabaseFailer.fromPostgrestException(e));
+    } catch (e) {
+      return Left(SupabaseFailer.unknown(e));
+    }
+  }
+
   Future<String> _uploadScreenshot(File imageFile, String userId) async {
     final extension = imageFile.path.split('.').last;
     final fileName = '$userId/${DateTime.now().millisecondsSinceEpoch}.$extension';
