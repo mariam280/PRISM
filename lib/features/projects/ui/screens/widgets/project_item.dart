@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
+import 'package:prism/core/utils/widgets/project_image.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/home/data/models/recent_project_model.dart';
 
@@ -25,7 +26,7 @@ class ProjectItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AspectRatio(aspectRatio: 1, child: Image.asset(projectModel.image)),
+            AspectRatio(aspectRatio: 1, child: ProjectImage(path: projectModel.image)),
             const CustomSize(h: 10),
             Text(
               projectModel.name,

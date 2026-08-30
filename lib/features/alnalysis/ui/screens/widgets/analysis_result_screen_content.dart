@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:prism/core/utils/widgets/project_image.dart';
 import 'package:prism/features/alnalysis/ui/screens/widgets/analysis_result_item_card.dart';
 import 'package:prism/features/home/data/models/recent_project_model.dart';
 
@@ -17,8 +16,8 @@ class AnalysisResultScreenContent extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          child: Image.file(
-            File(project.image),
+          child: ProjectImage(
+            path: project.image,
             fit: BoxFit.contain,
             width: double.infinity,
           ),

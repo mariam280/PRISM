@@ -7,7 +7,7 @@ class ComponentPreview extends StatelessWidget {
   const ComponentPreview({
     super.key,
     required this.componentModel,
-    this.height = 80,
+    this.height = 90,
   });
 
   final ComponentModel componentModel;

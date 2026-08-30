@@ -22,6 +22,10 @@ class Assets {
   /// assets/images/navBarPlaceHolder.png
   static const String imagesNavBarPlaceHolder = "assets/images/navBarPlaceHolder.png";
 
+  /// Assets for imagesNoDataAmico
+  /// assets/images/No_data_amico.png
+  static const String imagesNoDataAmico = "assets/images/No_data_amico.png";
+
   /// Assets for imagesOnboard1
   /// assets/images/onboard1.png
   static const String imagesOnboard1 = "assets/images/onboard1.png";

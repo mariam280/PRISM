@@ -4,6 +4,7 @@ import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/features/home/ui/screens/widgets/error_state_view.dart';
 import 'package:prism/features/home/ui/screens/widgets/loading_state_view.dart';
+import 'package:prism/features/home/ui/screens/widgets/no_analysis_projects_yet.dart';
 import 'package:prism/features/home/ui/screens/widgets/recent_project_item.dart';
 import 'package:prism/features/projects/ui/screens/logic/cubit/projects_cubit.dart';
 import 'package:prism/features/projects/ui/screens/logic/cubit/projects_state.dart';
@@ -18,7 +19,10 @@ class RecentProjectsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProjectsCubit, ProjectsState>(
       builder: (context, state) {
-        if (state is ProjectsLoading || state is ProjectsInitial) {
+        if (state is ProjectsInitial) {
+          return NoAnalysisProjectsYet();
+        }
+        if (state is ProjectsLoading) {
           return const LoadingStateView(message: 'Loading your projects...');
         }
 
@@ -40,9 +44,9 @@ class RecentProjectsList extends StatelessWidget {
               child: Text(
                 'No projects yet — analyze a screen to get started.',
                 textAlign: TextAlign.center,
-                style: AppStyles.regularInter13(context).copyWith(
-                  color: AppColors.grey,
-                ),
+                style: AppStyles.regularInter13(
+                  context,
+                ).copyWith(color: AppColors.grey),
               ),
             ),
           );

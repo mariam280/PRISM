@@ -26,7 +26,6 @@ class ComponentDetailView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(child: AppbarHeader(title: componentModel.name, onTap: onBack)),
               DetectionBadge(isAiDetected: componentModel.isAiDetected),

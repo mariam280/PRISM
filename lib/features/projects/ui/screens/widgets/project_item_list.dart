@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prism/features/home/data/models/recent_project_model.dart';
 import 'package:prism/features/home/ui/screens/widgets/error_state_view.dart';
 import 'package:prism/features/home/ui/screens/widgets/loading_state_view.dart';
+import 'package:prism/features/home/ui/screens/widgets/no_analysis_projects_yet.dart';
 import 'package:prism/features/projects/ui/screens/logic/cubit/projects_cubit.dart';
 import 'package:prism/features/projects/ui/screens/logic/cubit/projects_state.dart';
 import 'package:prism/features/projects/ui/screens/widgets/open_project_details.dart';
@@ -46,7 +47,10 @@ class ProjectItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProjectsCubit, ProjectsState>(
       builder: (context, state) {
-        if (state is ProjectsLoading || state is ProjectsInitial) {
+          if (state is ProjectsInitial) {
+          return NoAnalysisProjectsYet();
+        }
+        if (state is ProjectsLoading) {
           return const LoadingStateView(message: 'Loading your projects...');
         }
 
