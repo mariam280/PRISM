@@ -46,7 +46,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
           right: 0,
           bottom: 0,
           child: Transform.scale(
-            scale: 0.1,
+            scale: 2,
             child: Lottie.asset("assets/animation/Loading.json"),
           ),
         ),

@@ -6,25 +6,27 @@ import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/utils/widgets/custom_text_form_feild.dart';
 import 'package:prism/core/utils/widgets/custom_button.dart';
 
-class ForgotPasswordForm extends StatefulWidget {
-  const ForgotPasswordForm({super.key});
+class ResetPasswordForm extends StatefulWidget {
+  const ResetPasswordForm({super.key});
 
   @override
-  State<ForgotPasswordForm> createState() => _ForgotPasswordFormState();
+  State<ResetPasswordForm> createState() => _ResetPasswordFormState();
 }
 
-class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
+class _ResetPasswordFormState extends State<ResetPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   @override
   void dispose() {
-    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
   void onSubmit() {
     if (formKey.currentState?.validate() ?? false) {
-      GoRouter.of(context).push(AppRouters.resetPassword);
+      GoRouter.of(context).go(AppRouters.signIn);
     }
   }
 
@@ -36,12 +38,17 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         spacing: 10,
         children: [
           CustomTextFormField(
-            validator: Validators.email,
-            controller: emailController,
-            hint: 'Email adress',
+            validator: Validators.password,
+            controller: passwordController,
+            hint: 'Password',
+          ),
+          CustomTextFormField(
+            validator: Validators.password,
+            controller: confirmPasswordController,
+            hint: 'Password',
           ),
           CustomButton(
-            text: 'Send Reset Link',
+            text: 'Reset Password',
             onTap: onSubmit,
             textColor: AppColors.kWhite,
           ),

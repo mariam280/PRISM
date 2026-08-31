@@ -13,4 +13,5 @@ class AppRouters {
   static const appearance = '/appearance';
   static const analysisResult = '/afteranalysis';
   static const analysis = '/analysis';
+  static const resetPassword = '/resetPassword';
 }

@@ -12,6 +12,7 @@ import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:prism/features/auth/ui/logic/log_in_cubit/login_cubit.dart';
 import 'package:prism/features/auth/ui/logic/sign_up_cubit/sign_up_cubit.dart';
+import 'package:prism/features/auth/ui/screens/reset_password_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
 import 'package:prism/features/auth/ui/screens/signup_screen.dart';
 import 'package:prism/features/blueprint/ui/screens/blueprint_screen.dart';
@@ -40,6 +41,10 @@ abstract class AppRouter {
       GoRoute(
         path: AppRouters.forgotPassword,
         builder: (context, state) => const ForgotPasswordScreen(),
+      ),
+      GoRoute(
+        path: AppRouters.forgotPassword,
+        builder: (context, state) => const ResetPasswordScreen(),
       ),
       GoRoute(
         path: AppRouters.layout,
