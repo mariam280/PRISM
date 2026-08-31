@@ -12,7 +12,6 @@ import 'package:prism/core/utils/widgets/custom_text_form_feild.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/auth/ui/logic/log_in_cubit/login_cubit.dart';
 import 'package:prism/features/auth/ui/logic/log_in_cubit/login_state.dart';
-import 'package:prism/features/auth/ui/logic/sign_up_cubit/sign_up_state.dart';
 
 class SigninForm extends StatefulWidget {
   const SigninForm({super.key});
@@ -49,8 +48,11 @@ class _SigninFormState extends State<SigninForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
+        if (state is LoginLoading) {
+         CircularProgressIndicator(color: AppColors.purbleColor);
+        }
         if (state is LoginSuccess) {
           GoRouter.of(context).go(AppRouters.layout);
         }
@@ -59,43 +61,37 @@ class _SigninFormState extends State<SigninForm> {
           showSnackBar(context, state.message);
         }
       },
-      builder: (context, state) {
-        return Form(
-          key: formKey,
-          child: Column(
-            spacing: 10,
-            children: [
-              CustomTextFormField(
-                validator: Validators.email,
-                controller: emailController,
-                hint: 'Email adress',
+      child: Form(
+        key: formKey,
+        child: Column(
+          spacing: 10,
+          children: [
+            CustomTextFormField(
+              validator: Validators.email,
+              controller: emailController,
+              hint: 'Email adress',
+            ),
+            CustomTextFormField(
+              validator: Validators.password,
+              controller: passwordController,
+              hint: 'Password',
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: CustomTextButton(
+                text: 'Forgot Password?',
+                onPressed: onForgotPassword,
               ),
-
-              CustomTextFormField(
-                validator: Validators.password,
-                controller: passwordController,
-                hint: 'Password',
-              ),
-
-              Align(
-                alignment: Alignment.centerRight,
-                child: CustomTextButton(
-                  text: 'Forgot Password?',
-                  onPressed: onForgotPassword,
-                ),
-              ),
-
-              CustomSize(h: 4),
-
-              CustomButton(
-                text: 'Sign in',
-                onTap: state is SignUpLoading ? null :onSubmit,
-                textColor: AppColors.kWhite,
-              ),
-            ],
-          ),
-        );
-      },
+            ),
+            CustomSize(h: 4),
+            CustomButton(
+              text: 'Sign in',
+              onTap: onSubmit,
+              textColor: AppColors.kWhite,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

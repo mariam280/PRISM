@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:prism/core/helpers/validators.dart';
 import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/core/theme/app_colors.dart';
@@ -46,8 +45,11 @@ class _SignupFormState extends State<SignupForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignUpCubit, SignUpState>(
+    return BlocListener<SignUpCubit, SignUpState>(
       listener: (context, state) {
+        if (state is SignUpLoading) {
+         CircularProgressIndicator(color: AppColors.purbleColor);
+        }
         if (state is SignUpSuccess) {
           showSnackBar(context, 'Account created successfully. Please check your email to confirm your account.',);
           GoRouter.of(context).go(AppRouters.signIn);
@@ -57,8 +59,7 @@ class _SignupFormState extends State<SignupForm> {
           showSnackBar(context, state.message);
         }
       },
-      builder: (context, state) {
-        return Form(
+      child: Form(
           key: formKey,
           child: Column(
             spacing: 10,
@@ -68,30 +69,25 @@ class _SignupFormState extends State<SignupForm> {
                 controller: nameController,
                 hint: 'Full Name',
               ),
-
               CustomTextFormField(
                 validator: Validators.email,
                 controller: emailController,
                 hint: 'Email adress',
               ),
-
               CustomTextFormField(
                 validator: Validators.password,
                 controller: passwordController,
                 hint: 'Password',
               ),
-
               CustomSize(h: 4),
-
               CustomButton(
                 text: 'Create Account',
-                onTap: state is SignUpLoading ? null : onSubmit,
+                onTap: onSubmit,
                 textColor: AppColors.kWhite,
               ),
             ],
           ),
-        );
-      },
-    );
-  }
-}
+        ),
+      );
+  }}
+
