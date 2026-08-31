@@ -10,7 +10,9 @@ import 'package:prism/features/alnalysis/ui/logic/cubit/snalysis_cubit.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_result_screen.dart';
 import 'package:prism/features/alnalysis/ui/screens/analysis_screen.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
+import 'package:prism/features/auth/ui/logic/forgot_password_cubit/forgot_password_cubit.dart';
 import 'package:prism/features/auth/ui/logic/log_in_cubit/login_cubit.dart';
+import 'package:prism/features/auth/ui/logic/reset_password_cubit/reset_password_cubit.dart';
 import 'package:prism/features/auth/ui/logic/sign_up_cubit/sign_up_cubit.dart';
 import 'package:prism/features/auth/ui/screens/reset_password_screen.dart';
 import 'package:prism/features/auth/ui/screens/signin_screen.dart';
@@ -40,17 +42,23 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: AppRouters.forgotPassword,
-        builder: (context, state) => const ForgotPasswordScreen(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => ForgotPasswordCubit(getIt<AuthRepo>()),
+          child: const ForgotPasswordScreen(),
+        ),
       ),
       GoRoute(
-        path: AppRouters.forgotPassword,
-        builder: (context, state) => const ResetPasswordScreen(),
+        path: AppRouters.resetPassword,
+        builder: (context, state) => BlocProvider(
+          create: (context) => ResetPasswordCubit(getIt<AuthRepo>()),
+          child: const ResetPasswordScreen(),
+        ),
       ),
       GoRoute(
         path: AppRouters.layout,
         builder: (context, state) => BlocProvider(
-          create: (context) => ProjectsCubit(getIt<ProjectRepo>())
-          ..getProjects(),
+          create: (context) =>
+              ProjectsCubit(getIt<ProjectRepo>())..getProjects(),
           child: const LayoutScreen(),
         ),
       ),
