@@ -39,7 +39,7 @@ class SupabaseAuthFailure extends AuthFailure {
     if (message.contains('rate limit') ||
         message.contains('too many requests')) {
       return SupabaseAuthFailure(
-        message: 'Too many attempts. Please try again later.',
+        message: 'You’ve reached your usage limit. Please try again later.',
       );
     }
 

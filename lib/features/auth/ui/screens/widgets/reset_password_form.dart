@@ -30,8 +30,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   void onSubmit() {
     if (formKey.currentState?.validate() ?? false) {
-      context.read<ResetPasswordCubit>().resetPassword(
-        passwordController.text);
+      context.read<ResetPasswordCubit>().resetPassword(passwordController.text);
     }
   }
 
@@ -39,21 +38,20 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   Widget build(BuildContext context) {
     return BlocListener<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
-    if (state is ResetPasswordSuccess) {
-      showSnackBar(
-        context,
-        'Password updated successfully.',
-      );
-      GoRouter.of(context).go(AppRouters.signIn);
-    }
+        if (state is ResetPasswordLoading) {
+          const Center(
+            child: CircularProgressIndicator(color: AppColors.purbleColor),
+          );
+        }
+        if (state is ResetPasswordSuccess) {
+          showSnackBar(context, 'Password updated successfully.');
+          GoRouter.of(context).go(AppRouters.signIn);
+        }
 
-    if (state is ResetPasswordFailure) {
-      showSnackBar(
-        context,
-        state.message,
-      );
-    }
-  },
+        if (state is ResetPasswordFailure) {
+          showSnackBar(context, state.message);
+        }
+      },
       child: Form(
         key: formKey,
         child: Column(

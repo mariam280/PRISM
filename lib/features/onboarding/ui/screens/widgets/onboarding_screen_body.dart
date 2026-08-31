@@ -36,7 +36,11 @@ class _OnboardingScreenBodyState extends State<OnboardingScreenBody> {
       child: Column(
         children: [
           OnSkip(
-            onSkip: () {
+            onSkip: () async {
+              await GetStorageHelper.setGetStorageData(
+                key: dotenv.env['Has_Seen_Onboarding']!,
+                value: true,
+              );
               GoRouter.of(context).go(AppRouters.welcome);
             },
           ),
