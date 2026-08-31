@@ -11,7 +11,9 @@ class HomeScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = GetStorageHelper.getGetStorageData(key: 'userName') ?? 'User';
+    final fullName =
+        GetStorageHelper.getGetStorageData(key: 'userName') ?? 'User';
+    final firstName = fullName.trim().split(' ').first;
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 24),
       child: SingleChildScrollView(
@@ -21,7 +23,10 @@ class HomeScreenBody extends StatelessWidget {
           children: [
             Image.asset(Assets.imagesPrismLogo, width: 24, height: 24),
             CustomSize(h: 16),
-            Text('Good afternoon, $name', style: AppStyles.boldInter22(context)),
+            Text(
+              'Good afternoon, $firstName',
+              style: AppStyles.boldInter22(context),
+            ),
             Text(
               'Ready to uncover a new interface?',
               style: AppStyles.regularInter14(context),

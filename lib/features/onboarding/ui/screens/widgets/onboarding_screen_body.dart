@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
+import 'package:prism/core/cache/get_storage_helper.dart';
 import 'package:prism/core/routing/app_routers.dart';
 import 'package:prism/features/onboarding/ui/screens/widgets/on_skip.dart';
 import 'package:prism/features/onboarding/ui/screens/widgets/onboard_buttons.dart';
@@ -53,8 +55,12 @@ class _OnboardingScreenBodyState extends State<OnboardingScreenBody> {
                 curve: Curves.linear,
               );
             },
-            onTapNext: () {
+            onTapNext: () async {
               if (currentPage == 2) {
+                await GetStorageHelper.setGetStorageData(
+                  key: dotenv.env['Has_Seen_Onboarding']!,
+                  value: true,
+                );
                 GoRouter.of(context).go(AppRouters.welcome);
               } else {
                 pageController.animateToPage(
