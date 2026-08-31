@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:prism/core/errors/auth_failuer.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -84,6 +85,53 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<AuthFailure, void>> signOut() async {
     try {
       await _supabase.auth.signOut();
+
+      return right(null);
+    } on AuthException catch (e) {
+      return left(
+        SupabaseAuthFailure.fromAuthException(e),
+      );
+    } catch (e) {
+      return left(
+        SupabaseAuthFailure(
+          message: 'Something went wrong. Please try again.',
+        ),
+      );
+    }
+  }
+
+    @override
+  Future<Either<AuthFailure, void>> sendPasswordResetEmail({
+    required String email,
+  }) async {
+    try {
+      await _supabase.auth.resetPasswordForEmail(
+        email,
+        redirectTo: dotenv.env['AUTH_REST_LINK'],
+      );
+
+      return right(null);
+    } on AuthException catch (e) {
+      return left(
+        SupabaseAuthFailure.fromAuthException(e),
+      );
+    } catch (e) {
+      return left(
+        SupabaseAuthFailure(
+          message: 'Something went wrong. Please try again.',
+        ),
+      );
+    }
+  }
+
+ @override
+  Future<Either<AuthFailure, void>> updatePassword({
+    required String newPassword,
+  }) async {
+    try {
+      await _supabase.auth.updateUser(
+        UserAttributes(password: newPassword),
+      );
 
       return right(null);
     } on AuthException catch (e) {
