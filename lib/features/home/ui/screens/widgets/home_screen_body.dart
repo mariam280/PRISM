@@ -48,7 +48,7 @@ class HomeScreenBody extends StatelessWidget {
             ),
             CustomSize(h: 16),
             Text(
-              'Good afternoon, $firstName',
+              'Welcome, $firstName',
               style: AppStyles.boldInter22(context),
             ),
             Text(
