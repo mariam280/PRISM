@@ -20,22 +20,14 @@ class AccountPreferncesAi extends StatelessWidget {
           ),
         ),
         ProfileItem(
-          title: 'PREFERENCES',
+          title: 'Setting',
           child: InkWell(
             onTap: () {
-              GoRouter.of(context).push(AppRouters.appearance);
+              GoRouter.of(context).push(AppRouters.setting);
             },
-            child: Column(
-              children: [
-                ProfileItemContent(
-                  lable: 'Appearance',
-                  icon: Icons.dark_mode_outlined,
-                ),
-                ProfileItemContent(
-                  lable: 'Notifications',
-                  icon: Icons.notifications_outlined,
-                ),
-              ],
+            child: ProfileItemContent(
+              lable: 'Setting',
+              icon: Icons.settings_outlined,
             ),
           ),
         ),

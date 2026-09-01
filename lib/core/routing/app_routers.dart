@@ -6,11 +6,11 @@ class AppRouters {
   static const register = '/signup';
   static const signIn = '/signIn';
   static const blueprint = '/blueprint';
-  static const setting = '/setting';
+  //static const setting = '/setting';
   static const forgotPassword = '/forgotPassword';
   static const uploadImage = '/upload_image';
   static const reviewScreenshot = '/reviewScreenshot';
-  static const appearance = '/appearance';
+  static const setting = '/setting';
   static const analysisResult = '/afteranalysis';
   static const analysis = '/analysis';
   static const resetPassword = '/resetPassword';
