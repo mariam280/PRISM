@@ -15,7 +15,6 @@ class ProfileAvatarCard extends StatelessWidget {
     return BlocConsumer<ProfileCubit, ProfileState>(
       listener: (context, state) {
         if (state is ProfileFailure) {
-          print(state.message);
           showSnackBar(context, state.message);
         }
       },

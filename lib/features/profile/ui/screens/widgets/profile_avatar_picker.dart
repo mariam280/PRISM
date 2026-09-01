@@ -66,13 +66,16 @@ class ProfileAvatarPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final displayUrl = imageUrl != null
+        ? '$imageUrl?t=${DateTime.now().millisecondsSinceEpoch}'
+        : null;
     return GestureDetector(
       onTap: () => _showImageSourceBottomSheet(context),
       child: CircleAvatar(
         radius: 25,
         backgroundColor: AppColors.purbleColor,
-        backgroundImage: imageUrl != null ? NetworkImage(imageUrl!) : null,
-        child: imageUrl == null ? const CircleAvatar(radius: 23) : null,
+       backgroundImage: displayUrl != null ? NetworkImage(displayUrl) : null,
+        child: displayUrl == null ? const CircleAvatar(radius: 23) : null,
       ),
     );
   }
