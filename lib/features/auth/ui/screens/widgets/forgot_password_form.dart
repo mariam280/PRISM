@@ -19,6 +19,7 @@ class ForgotPasswordForm extends StatefulWidget {
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController emailController = TextEditingController();
+
   @override
   void dispose() {
     emailController.dispose();
@@ -35,13 +36,8 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ForgotPasswordCubit, ForgotPasswordState>(
+    return BlocConsumer<ForgotPasswordCubit, ForgotPasswordState>(
       listener: (context, state) {
-        if (state is ForgotPasswordLoading) {
-          const Center(
-            child: CircularProgressIndicator(color: AppColors.purbleColor),
-          );
-        }
         if (state is ForgotPasswordSuccess) {
           showSnackBar(
             context,
@@ -54,24 +50,33 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           showSnackBar(context, state.message);
         }
       },
-      child: Form(
-        key: formKey,
-        child: Column(
-          spacing: 10,
-          children: [
-            CustomTextFormField(
-              validator: Validators.email,
-              controller: emailController,
-              hint: 'Email adress',
-            ),
-            CustomButton(
-              text: 'Send Reset Link',
-              onTap: onSubmit,
-              textColor: AppColors.kWhite,
-            ),
-          ],
-        ),
-      ),
+      builder: (context, state) {
+        final isLoading = state is ForgotPasswordLoading;
+
+        return Form(
+          key: formKey,
+          child: Column(
+            spacing: 10,
+            children: [
+              CustomTextFormField(
+                validator: Validators.email,
+                controller: emailController,
+                enabled: !isLoading,
+                hint: 'Email adress',
+              ),
+              isLoading
+                  ? const CircularProgressIndicator(
+                      color: AppColors.purbleColor,
+                    )
+                  : CustomButton(
+                      text: 'Send Reset Link',
+                      onTap: onSubmit,
+                      textColor: AppColors.kWhite,
+                    ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

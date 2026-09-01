@@ -48,11 +48,8 @@ class _SigninFormState extends State<SigninForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginLoading) {
-         CircularProgressIndicator(color: AppColors.purbleColor);
-        }
         if (state is LoginSuccess) {
           GoRouter.of(context).go(AppRouters.layout);
         }
@@ -61,37 +58,48 @@ class _SigninFormState extends State<SigninForm> {
           showSnackBar(context, state.message);
         }
       },
-      child: Form(
-        key: formKey,
-        child: Column(
-          spacing: 10,
-          children: [
-            CustomTextFormField(
-              validator: Validators.email,
-              controller: emailController,
-              hint: 'Email adress',
-            ),
-            CustomTextFormField(
-              validator: Validators.password,
-              controller: passwordController,
-              hint: 'Password',
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: CustomTextButton(
-                text: 'Forgot Password?',
-                onPressed: onForgotPassword,
+      builder: (context, state) {
+        final isLoading = state is LoginLoading;
+
+        return Form(
+          key: formKey,
+          child: Column(
+            spacing: 10,
+            children: [
+              CustomTextFormField(
+                validator: Validators.email,
+                controller: emailController,
+                enabled: !isLoading,
+                hint: 'Email adress',
               ),
-            ),
-            CustomSize(h: 4),
-            CustomButton(
-              text: 'Sign in',
-              onTap: onSubmit,
-              textColor: AppColors.kWhite,
-            ),
-          ],
-        ),
-      ),
+              CustomTextFormField(
+                validator: Validators.password,
+                controller: passwordController,
+                enabled: !isLoading,
+                isObscure: true,
+                hint: 'Password',
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: CustomTextButton(
+                  text: 'Forgot Password?',
+                  onPressed: onForgotPassword,
+                ),
+              ),
+              CustomSize(h: 4),
+              isLoading
+                  ? const CircularProgressIndicator(
+                      color: AppColors.purbleColor,
+                    )
+                  : CustomButton(
+                      text: 'Sign in',
+                      onTap: onSubmit,
+                      textColor: AppColors.kWhite,
+                    ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

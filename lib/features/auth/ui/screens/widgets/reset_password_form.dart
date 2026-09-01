@@ -21,6 +21,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   GlobalKey<FormState> formKey = GlobalKey();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
   @override
   void dispose() {
     passwordController.dispose();
@@ -36,13 +37,8 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<ResetPasswordCubit, ResetPasswordState>(
+    return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
-        if (state is ResetPasswordLoading) {
-          const Center(
-            child: CircularProgressIndicator(color: AppColors.purbleColor),
-          );
-        }
         if (state is ResetPasswordSuccess) {
           showSnackBar(context, 'Password updated successfully.');
           GoRouter.of(context).go(AppRouters.signIn);
@@ -52,24 +48,34 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           showSnackBar(context, state.message);
         }
       },
-      child: Form(
-        key: formKey,
-        child: Column(
-          spacing: 10,
-          children: [
-            CustomTextFormField(
-              validator: Validators.password,
-              controller: passwordController,
-              hint: 'Enter new password',
-            ),
-            CustomButton(
-              text: 'Reset Password',
-              onTap: onSubmit,
-              textColor: AppColors.kWhite,
-            ),
-          ],
-        ),
-      ),
+      builder: (context, state) {
+        final isLoading = state is ResetPasswordLoading;
+
+        return Form(
+          key: formKey,
+          child: Column(
+            spacing: 10,
+            children: [
+              CustomTextFormField(
+                validator: Validators.password,
+                controller: passwordController,
+                enabled: !isLoading,
+                isObscure: true,
+                hint: 'Enter new password',
+              ),
+              isLoading
+                  ? const CircularProgressIndicator(
+                      color: AppColors.purbleColor,
+                    )
+                  : CustomButton(
+                      text: 'Reset Password',
+                      onTap: onSubmit,
+                      textColor: AppColors.kWhite,
+                    ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

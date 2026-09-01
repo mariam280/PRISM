@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines = 1,
     this.validator,
     this.controller,
-    this.fillColor,
+    this.fillColor, this.enabled,
   });
   final String? hint;
   final bool isObscure;
@@ -20,11 +20,13 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController? controller;
   final Color? fillColor;
+  final bool? enabled;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       validator: validator,
+      enabled: enabled ?? true,
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       maxLines: maxLines,
       keyboardType: keyboardType,

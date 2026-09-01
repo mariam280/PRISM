@@ -45,13 +45,13 @@ class _SignupFormState extends State<SignupForm> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignUpCubit, SignUpState>(
+    return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
-        if (state is SignUpLoading) {
-         CircularProgressIndicator(color: AppColors.purbleColor);
-        }
         if (state is SignUpSuccess) {
-          showSnackBar(context, 'Account created successfully. Please check your email to confirm your account.',);
+          showSnackBar(
+            context,
+            'Account created successfully. Please check your email to confirm your account.',
+          );
           GoRouter.of(context).go(AppRouters.signIn);
         }
 
@@ -59,7 +59,10 @@ class _SignupFormState extends State<SignupForm> {
           showSnackBar(context, state.message);
         }
       },
-      child: Form(
+      builder: (context, state) {
+        final isLoading = state is SignUpLoading;
+
+        return Form(
           key: formKey,
           child: Column(
             spacing: 10,
@@ -67,27 +70,36 @@ class _SignupFormState extends State<SignupForm> {
               CustomTextFormField(
                 validator: Validators.fullName,
                 controller: nameController,
+                enabled: !isLoading,
                 hint: 'Full Name',
               ),
               CustomTextFormField(
                 validator: Validators.email,
                 controller: emailController,
+                enabled: !isLoading,
                 hint: 'Email adress',
               ),
               CustomTextFormField(
                 validator: Validators.password,
                 controller: passwordController,
+                enabled: !isLoading,
+                isObscure: true,
                 hint: 'Password',
               ),
               CustomSize(h: 4),
-              CustomButton(
-                text: 'Create Account',
-                onTap: onSubmit,
-                textColor: AppColors.kWhite,
-              ),
+              isLoading
+                  ? const CircularProgressIndicator(
+                      color: AppColors.purbleColor,
+                    )
+                  : CustomButton(
+                      text: 'Create Account',
+                      onTap: onSubmit,
+                      textColor: AppColors.kWhite,
+                    ),
             ],
           ),
-        ),
-      );
-  }}
-
+        );
+      },
+    );
+  }
+}
