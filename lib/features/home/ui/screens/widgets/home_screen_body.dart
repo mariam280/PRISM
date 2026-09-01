@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:prism/core/cache/get_storage_helper.dart';
 import 'package:prism/core/constants/app_images.dart';
+import 'package:prism/core/theme/app_colors.dart';
 import 'package:prism/core/theme/app_styles.dart';
 import 'package:prism/core/utils/widgets/size.dart';
 import 'package:prism/features/home/ui/screens/widgets/create_blueprint_card.dart';
 import 'package:prism/features/home/ui/screens/widgets/recent_projects_list.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -14,6 +16,13 @@ class HomeScreenBody extends StatelessWidget {
     final fullName =
         GetStorageHelper.getGetStorageData(key: 'userName') ?? 'User';
     final firstName = fullName.trim().split(' ').first;
+    final imageurl = Supabase
+        .instance
+        .client
+        .auth
+        .currentUser
+        ?.userMetadata?['avatar_url']
+        ?.toString();
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 24),
       child: SingleChildScrollView(
@@ -21,7 +30,22 @@ class HomeScreenBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(Assets.imagesPrismLogo, width: 24, height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset(Assets.imagesPrismLogo, width: 24, height: 24),
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: AppColors.purbleColor,
+                  backgroundImage: imageurl != null
+                      ? NetworkImage(imageurl)
+                      : null,
+                  child: imageurl == null
+                      ? const CircleAvatar(radius: 23)
+                      : null,
+                ),
+              ],
+            ),
             CustomSize(h: 16),
             Text(
               'Good afternoon, $firstName',
