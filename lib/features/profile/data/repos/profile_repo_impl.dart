@@ -12,6 +12,10 @@ class ProfileRepoImpl extends ProfileRepo{
 Future<Either<AuthFailure, ProfileModel>> getProfile() async {
   try {
     final user = _supabase.auth.currentUser;
+final session = _supabase.auth.currentSession;
+
+print('USER ID: ${user?.id}');
+print('SESSION EXISTS: ${session != null}');
 
     if (user == null) {
       return left(

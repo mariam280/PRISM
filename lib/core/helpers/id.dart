@@ -6,6 +6,8 @@ import 'package:prism/features/alnalysis/data/repos/analysis_repo_impl.dart';
 import 'package:prism/features/alnalysis/data/services/gemini_analysis_service.dart';
 import 'package:prism/features/auth/data/repos/auth_repo.dart';
 import 'package:prism/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:prism/features/profile/data/repos/profile_repo.dart';
+import 'package:prism/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:prism/features/projects/data/repos/project_repo.dart';
 import 'package:prism/features/projects/data/repos/project_repo_impl.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -19,5 +21,8 @@ void setup() {
   );
   getIt.registerSingleton<AnalysisRepo>(AnalysisRepoImpl(getIt()));
   getIt.registerSingleton<AuthRepo>(AuthRepoImpl());
-   getIt.registerSingleton<ProjectRepo>(ProjectRepoImpl(Supabase.instance.client));
+  getIt.registerSingleton<ProjectRepo>(
+    ProjectRepoImpl(Supabase.instance.client),
+  );
+  getIt.registerSingleton<ProfileRepo>(ProfileRepoImpl());
 }
