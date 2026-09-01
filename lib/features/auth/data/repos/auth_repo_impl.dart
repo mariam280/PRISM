@@ -105,9 +105,6 @@ class AuthRepoImpl implements AuthRepo {
     required String email,
   }) async {
     try {
-     print('**************************');
-print('RESET LINK: ${dotenv.env['AUTH_REST_LINK']}');
-print('**************************');
       await _supabase.auth.resetPasswordForEmail(
         email,
         redirectTo: dotenv.env['AUTH_REST_LINK'],
