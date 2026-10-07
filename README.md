@@ -9,7 +9,9 @@ It's built for developers and designers who look at a great screen and think *"h
 ---
 
 ## 📸 Screenshots & Demo
+click to see demo📸:
 https://github.com/user-attachments/assets/b4aa3b6f-393a-4b26-9a2d-eb76b38f9211
+
 <img width="698" height="1600" alt="Image" src="https://github.com/user-attachments/assets/3c65a33e-9bed-4635-9f65-b39123ba83e6" />
 <img width="698" height="1600" alt="Image" src="https://github.com/user-attachments/assets/c4d42a26-df7f-4d43-9303-d0e240c97262" />
 <img width="698" height="1600" alt="Image" src="https://github.com/user-attachments/assets/d1a0be54-4a0b-4427-a2ee-a19a416383f9" />
