@@ -8,6 +8,10 @@ It's built for developers and designers who look at a great screen and think *"h
 
 ---
 
+## 📸 Screenshots & Demo
+
+---
+
 ## 🚀 Features
 
 - **AI-Powered UI Analysis** — Upload or capture a screenshot, and Google Gemini Vision analyzes it using a structured JSON response schema for consistent and predictable results.
@@ -92,17 +96,7 @@ Structured Analysis
     ↓
 PRISM Blueprint
 
----
 
-## 📸 Screenshots
-
-<!-- Add screenshots of the main PRISM screens here -->
-
-| Home | Analysis | Blueprint |
-|------|----------|-----------|
-| Coming soon | Coming soon | Coming soon |
-
----
 
 ## 🔗 Project Link
 
