@@ -1,17 +1,109 @@
-# prism
+# PRISM
 
-A new Flutter project.
+**See the system behind every screen.**
 
-## Getting Started
+PRISM is a Flutter app that reverse-engineers UI design. Upload a screenshot of any app, and PRISM uses AI to break it down into a structured **Blueprint**: the color palette, typography, spacing, shape language, layout structure, and individual UI components detected from the original screen.
 
-This project is a starting point for a Flutter application.
+It's built for developers and designers who look at a great screen and think *"how is this actually put together?"* — and want to understand the design decisions behind it in seconds.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **AI-Powered UI Analysis** — Upload or capture a screenshot, and Google Gemini Vision analyzes it using a structured JSON response schema for consistent and predictable results.
+
+- **The Blueprint** — Every analysis is organized into three sections:
+  - **Overview** — A description of the screen, key statistics, and its structural sections.
+  - **Design** — Extracted color palette, typography, spacing, and shape/corner-radius information.
+  - **Components** — Detected UI elements such as buttons, cards, input fields, and more, with their specifications and cropped images from the original screenshot.
+
+- **Project History** — View recently analyzed screens on Home and browse the complete Projects library with search and filtering.
+
+- **Re-analyze & Delete** — Re-run the analysis of an existing project or delete it directly through Supabase.
+
+- **Full Authentication Flow** — Email/password sign-up and sign-in, email confirmation, forgot password, and password recovery through Deep Linking.
+
+- **Cloud Synced** — Projects, screenshots, and analysis results are stored in Supabase.
+
+- **Profile Management** — View profile information and update the profile avatar using Supabase Storage.
+
+
+## 🏗️ Architecture
+
+PRISM follows **Clean Architecture** with a feature-first folder structure:
+
+text
+lib/
+├── core/
+│   ├── di/              # Service locator (get_it) setup
+│   ├── errors/          # Failure hierarchy
+│   ├── networking/      # Shared Dio API service
+│   ├── routing/         # GoRouter configuration
+│   ├── theme/            # App colors and styles
+│   ├── services/         # Shared services and deep link listener
+│   └── utils/            # Shared widgets and utilities
+│
+└── features/
+    ├── auth/             # Sign in/up, forgot & reset password
+    ├── onboarding/       # First-launch walkthrough
+    ├── welcome/          # Authentication entry screen
+    ├── home/             # Home dashboard and recent projects
+    ├── upload/           # Image picker and image review
+    ├── analysis/         # Gemini analysis pipeline
+    ├── blueprint/        # Blueprint and analysis results
+    │   ├── overview/
+    │   ├── design/
+    │   └── components/
+    ├── projects/         # Projects library, search, filter and CRUD
+    └── profile/          # Profile and avatar management
+
+## 🛠️ Tech Stack
+
+- **Flutter & Dart**
+- **Google Gemini API** — Vision analysis using a structured JSON `responseSchema` and normalized bounding boxes for component detection and cropping.
+- **Supabase**
+  - Authentication
+  - PostgreSQL Database
+  - Row Level Security (RLS)
+  - Storage
+- **flutter_bloc** — Cubit-based state management
+- **go_router** — Declarative navigation
+- **dartz** — Functional `Either` for error handling
+- **get_it** — Dependency injection
+- **dio** — HTTP client
+- **image_picker** — Camera and gallery image selection
+- **flutter_dotenv** — Environment configuration
+- **lottie** — Loading and animation effects
+- **Deep Linking** — Custom URL scheme for password recovery
+- **Clean Architecture & Repository Pattern**
+
+## 🔄 Analysis Flow
+
+text
+Screenshot
+    ↓
+Image Processing
+    ↓
+Google Gemini Vision
+    ↓
+Custom Prompt + JSON Schema
+    ↓
+Structured Analysis
+    ↓
+PRISM Blueprint
+
+---
+
+## 📸 Screenshots
+
+<!-- Add screenshots of the main PRISM screens here -->
+
+| Home | Analysis | Blueprint |
+|------|----------|-----------|
+| Coming soon | Coming soon | Coming soon |
+
+---
+
+## 🔗 Project Link
+
+[GitHub Repository](https://github.com/mariam280/PRISM)
